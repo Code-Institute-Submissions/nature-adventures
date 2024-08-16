@@ -1,0 +1,1 @@
+web: gunicorn nature_adventures.wsgi
