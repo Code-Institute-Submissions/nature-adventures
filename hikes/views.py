@@ -8,3 +8,4 @@ class HikesList(generic.ListView):
     queryset = Hike.objects.all()
     template_name = "hikes/hikes_list.html"
     context_object_name = "hikes_list"
+    paginate_by = 3
