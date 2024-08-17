@@ -1,11 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    This is list of hikes
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        {% for hike in hikes_list %}
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                {% if "placehold" in hike.route_image.url %}
+                <img src="{% static 'images/default_hike.jpg' %}" class="card-img-top" alt="Default image of people hiking">
+                {% else %}
+                <img src="{{ hike.route_image.url }}" alt="{{ hike.hike_name }}" class="card-img-top">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title"> {{ hike.hike_name }}</h5>
+                    <p class="card-text">{{ hike.region }}</p>
+                    <p class="card-text">{{ hike.distance }} miles </p>
+                    <a href="#" class="btn btn-primary">View the route</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
