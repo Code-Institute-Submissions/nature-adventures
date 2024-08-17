@@ -30,7 +30,7 @@ class Hike(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
     slug = models.SlugField(max_length=100, unique=True)
-    route_image = CloudinaryField('image', default='placehold')
+    route_image = CloudinaryField('image', default='placeholder')
 
     class Meta: 
         pass
