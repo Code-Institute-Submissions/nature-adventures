@@ -1,0 +1,42 @@
+body {
+    background: url("../images/bg-image.jpg") no-repeat;
+    background-size: cover;
+}
+
+/* Hike list */
+.hike-container {
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
+.hike-nav {
+    padding-top: 30px
+}
+
+.hike-row {
+    justify-content: center;
+    
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+.logos > i {
+    font-size: 20px;
+}
+
+.copyright {
+    display: flex;
+    align-items: right;
+    justify-content: center;
+}
