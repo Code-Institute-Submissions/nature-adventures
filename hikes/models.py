@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -29,6 +30,7 @@ class Hike(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
     slug = models.SlugField(max_length=100, unique=True)
+    route_image = CloudinaryField('image', default='placehold')
 
     class Meta: 
         pass
