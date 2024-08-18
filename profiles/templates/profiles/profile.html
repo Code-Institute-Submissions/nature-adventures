@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<main class="container bg-light profile-container">
+    <h1 class="profile-title"> {{ user.username }} </h1>
+    <div class="profile-content">    
+        <img src="{% static 'images/nobody.jpg' %}" class="profile-image" alt="Placeholder profile image">
+        <div class="profile-info">
+            <div> I am based in <strong>{{ profile.region }}</strong></div>
+            <br>
+            <div> <strong>About me:</strong> <br> {{ profile.about }}</div>
+        </div>
+    </div>
+
+</main>
+
+
+
+{% endblock %}
