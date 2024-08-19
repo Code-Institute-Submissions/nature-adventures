@@ -3,6 +3,14 @@ body {
     background-size: cover;
 }
 
+/* Login */
+.login-container {
+    background-color: #F8F9FA;
+    max-width: 800px;
+    margin: 10vh auto;
+    padding-bottom: 30px;
+}
+
 /* Profile page */
 .profile-container {
     margin: 10vh auto;
