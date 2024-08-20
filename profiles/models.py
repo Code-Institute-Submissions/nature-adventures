@@ -31,7 +31,7 @@ class Profile(models.Model):
     def __str__(self):
         return f"{self.user.username}"
 
-#Create Profile when new user signs up
+#Create Profile automatically when new user signs up
 #https://docs.djangoproject.com/en/5.1/topics/signals/
 def create_profile(sender, instance, created, **kwargs):
     if created:
