@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% url 'update_profile' as update_profile_url %}
 
 {% block content %}
 
@@ -13,7 +14,10 @@
             <div> <strong>About me:</strong> <br> {{ profile.about }} </div>
         </div>
     </div>
-
+    <!-- Check that the user is only able to update their own profile -->
+    {% if request.user.id == profile.user.id %}
+    <a href="{% url 'update_profile' %}" class="btn btn-success update-button">Update Profile</a>
+    {% endif %}
 </main>
 
 

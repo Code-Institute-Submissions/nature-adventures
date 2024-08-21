@@ -16,10 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from profiles import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("accounts/", include("allauth.urls")),
     path("", include("hikes.urls"), name="hikes-urls"),
+    path('update_profile/', views.update_profile, name='update_profile'),
     path("profiles/", include("profiles.urls"), name="profile-urls"),
 ]

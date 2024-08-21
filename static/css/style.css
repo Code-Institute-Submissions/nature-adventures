@@ -19,10 +19,18 @@ body {
     padding-bottom: 30px;
 }
 
+/* Buttons */
+.update-button {
+    display: block;
+    margin: 10px auto 10px;
+    max-width: 130px;
+}
+
 /* Profile page */
 .profile-container {
     margin: 10vh auto;
     width: 80%;
+    padding-bottom: 10px;
 }
 
 .profile-title {
