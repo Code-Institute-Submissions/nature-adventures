@@ -2,7 +2,6 @@
 {% load static %}
 
 {% url 'profile' as profile_url %}
-{% url 'accounts' as accounts_url %}
 
 {% block content %}
 
@@ -12,7 +11,11 @@
     <div class="container">
         <div class="row m-md-2">
             <div class="col-12 col-md-6">
+                {% if "placehold" in hike.route_image.url %}
                 <img src="{% static 'images/default_hike.jpg' %}" class="img-fluid hike-image" alt="Placeholder hike image">
+                {% else %}              
+                <img src="{{ hike.route_image.url }}" alt="{{ hike.hike_name }}" class="card-img-top">
+                {% endif %}
             </div>
             <div class="col container hike-info m-1">
                 <div class="row">
