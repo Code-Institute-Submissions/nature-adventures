@@ -4,9 +4,9 @@
 
 {% block content %}
 
-<div class="container bg-light profile-container">
-    <h1 class="profile-title"> Update Profile: {{ profile.user.username }} </h1>
-    <form method="POST" action="">
+<div class="container bg-light content-container">
+    <h1 class="profile-title"> Update Profile: </h1>
+    <form method="POST" action="" enctype="multipart/form-data">
         {% csrf_token %}
         {{ profile_form | crispy }}
         <br>

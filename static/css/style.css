@@ -1,8 +1,21 @@
 body {
     background: url("../images/bg-image.jpg") no-repeat;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
+.content-container {
+    margin: 10vh auto;
+    width: 80%;
+    padding-bottom: 10px;
+}
+
+.page-title {
+    text-align: center;
+    padding-top: 30px;
+}
 /* Navbar */
 
 .auth-links {
@@ -27,16 +40,6 @@ body {
 }
 
 /* Profile page */
-.profile-container {
-    margin: 10vh auto;
-    width: 80%;
-    padding-bottom: 10px;
-}
-
-.profile-title {
-    text-align: center;
-    padding-top: 30px;
-}
 
 .profile-content {
     display: flex;
@@ -62,9 +65,19 @@ body {
 }
 
 .hike-row {
-    justify-content: center;
-    
+    justify-content: center;    
 }
+
+/* Hike information page */
+/* .hike-image {
+    max-width: 400px;
+}
+
+.hike-content {
+
+} */
+
+
 
 /* Footer */
 .footer {
