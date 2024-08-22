@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% url 'hike_info' as hike_info_url %}
+
 {% block content %}
 
 <div class="container hike-container">
@@ -17,7 +19,7 @@
                     <h5 class="card-title"> {{ hike.hike_name }}</h5>
                     <p class="card-text">{{ hike.region }}</p>
                     <p class="card-text">{{ hike.distance }} miles </p>
-                    <a href="#" class="btn btn-primary">View the route</a>
+                    <a href="{% url 'hike_info' hike.slug %}" class="btn btn-primary">View the route</a>
                 </div>
             </div>
         </div>

@@ -32,6 +32,15 @@ body {
     padding-bottom: 30px;
 }
 
+/* Login prompt */
+.login-prompt {
+    text-align: center;
+    margin: 10vh auto;
+    width: 400px;
+    background-color: #F8F9FA;
+    color: black;
+}
+
 /* Buttons */
 .update-button {
     display: block;

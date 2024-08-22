@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% url 'profile' as profile_url %}
+{% url 'accounts' as accounts_url %}
+
 {% block content %}
 
+{% if user.is_authenticated %}
 <main class="container bg-light content-container">
     <h1 class="page-title"> {{ hike.hike_name }} </h1>
     <div class="container">
@@ -21,7 +25,7 @@
                 </div>
                 <div class="row">
                     <div class="col-6 col-md-3 fw-bold">Author:</div>
-                    <div class="col-6 col-md-9">{{ hike.author }}</div>
+                    <div class="col-6 col-md-9"><a href="{% url 'profile' hike.author %}">{{ hike.author }}</a></div>
                 </div>
                 <div class="row">
                     <div class="col-6 col-md-3 fw-bold">Date added:</div>
@@ -32,10 +36,12 @@
             <strong>Description: </strong>{{ hike.description }}
         </div>
     </div>
-    <!-- Check that the user is only able to update their own profile -->
-    {% if request.user.id == profile.user.id %}
-    <a href="{% url 'update_profile' %}" class="btn btn-success update-button">Update Profile</a>
-    {% endif %}
 </main>
+{% else %}
+<div class="alert alert-warning" role="alert">
+    To view this page please <a href="{{ login_url }}" class="alert-link">login</a>.
+  </div>
+{% endif %}
+
 
 {% endblock %}
