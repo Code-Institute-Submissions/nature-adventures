@@ -1,17 +1,27 @@
 {% extends "base.html" %}
 {% load static %}
 {% url 'update_profile' as update_profile_url %}
+<!-- {% load cloudinary %} -->
 
 {% block content %}
 
 <main class="container bg-light content-container">
     <h1 class="page-title"> {{ profile.user.username }} </h1>
     <div class="profile-content">
+        {% if "placeholder" in profile.profile_pic.url %}
         <img src="{% static 'images/nobody.jpg' %}" class="profile-image" alt="Placeholder profile image">
+        {% else %}
+        <!-- <img src="{{ profile.profile_pic.url }}" class="profile-image" alt=""> -->
+        {% load cloudinary %}
+        {% cloudinary profile.profile_pic format="png" width=200 height=200 radius=100 %}
+        {% endif %}
         <div class="profile-info">
             <div>I am based in <strong>{{ profile.region }}</strong></div>
             <br>
             <div> <strong>About me:</strong> <br> {{ profile.about }} </div>
+            <!-- Links to the hikes that the user has added -->
+            <div><strong>My routes:</strong> {% for hike in user_hikes %} <br> 
+                <a href="{% url 'hike_info' hike.slug %}">{{ hike.hike_name }}</a> {% endfor %}</div>
         </div>
     </div>
     <!-- Check that the user is only able to update their own profile -->

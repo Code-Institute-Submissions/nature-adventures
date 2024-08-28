@@ -16,10 +16,13 @@ def profile(request, username):
     # Get the profile of the user using the username
     queryset = Profile.objects.all()
     profile = get_object_or_404(queryset, user=username)
+    # Get the hikes that the user has added
+    user_hikes = username.hiking_routes.all()
     return render(
             request, 
             "profiles/profile.html", 
-            {"profile":profile},
+            {"profile":profile,
+            "user_hikes": user_hikes,},
             )
 
 

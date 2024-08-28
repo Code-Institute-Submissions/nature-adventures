@@ -21,7 +21,6 @@ from profiles import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("accounts/", include("allauth.urls")),
-    path('update_profile/', views.update_profile, name='update_profile'),
     path("profiles/", include("profiles.urls"), name="profile-urls"),
     path("", include("hikes.urls"), name="hikes-urls"),
 ]
