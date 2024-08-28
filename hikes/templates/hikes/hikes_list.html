@@ -41,13 +41,18 @@
     {% endif %}
 </div>
 
-{% if user.is_authenticated %}
+<!-- Link to add new routes -->
 <div class="container bg-light add-hike">
 <h6>Is your favourite hike missing?</h6>
 <p> Help your fellow hiking enthusiasts to discover the most amazing routes by adding your favourite hikes.</p>
- <a href="{% url 'new_hike' %}" class="btn btn-primary">Create a new hiking route</a>   
+{% if user.is_authenticated %}
+<a href="{% url 'new_hike' %}" class="btn btn-primary">Create a new hiking route</a>
+<!-- Require non-authenticated users to register or login -->
+{% else %}
+<div class="alert alert-success" role="alert">
+    To create a route please <a href="{% url 'account_login' %}" class="alert-link">login</a> or
+    <a href="{% url 'account_signup' %}" class="alert-link">register</a>.
 </div>
 {% endif %}
-
 
 {% endblock %}

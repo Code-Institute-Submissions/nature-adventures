@@ -8,11 +8,11 @@ from cloudinary.models import CloudinaryField
 REGIONS =  (
     ("Wales", "Wales"),
     ("Scotland", "Scotland"),
-    ("N. Ireland", "Northern Ireland"),
+    ("Northern Ireland", "Northern Ireland"),
     ("London", "London"),
     ("North East", "North East"),
     ("North West", "North West"),
-    ("Yorks", "Yorkshire"),
+    ("Yorkshire", "Yorkshire"),
     ("East Midlands", "East Midlands"),
     ("West Midlands", "West Midlands"),
     ("South East", "South East"),
