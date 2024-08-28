@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from django.template.defaultfilters import slugify
+from django.contrib import messages
 from .models import Hike
 from .forms import CreateHikeForm
 
@@ -50,7 +51,8 @@ def new_hike(request):
             # Add slugified hike_name as the slug
             added_hike.slug = slugify(added_hike.hike_name)
             added_hike.save()
-            return redirect('hikes')
+            messages.add_message(request, messages.SUCCESS, f'Your hiking route has been added successfully!')
+            return redirect('hike_info', added_hike.slug)
     return render(
         request,
         "hikes/create_hike.html",
