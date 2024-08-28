@@ -19,9 +19,17 @@
             <div>I am based in <strong>{{ profile.region }}</strong></div>
             <br>
             <div> <strong>About me:</strong> <br> {{ profile.about }} </div>
+            <br>
             <!-- Links to the hikes that the user has added -->
-            <div><strong>My routes:</strong> {% for hike in user_hikes %} <br> 
-                <a href="{% url 'hike_info' hike.slug %}">{{ hike.hike_name }}</a> {% endfor %}</div>
+            <div><strong>My routes:</strong> 
+                {% if user_hikes %} 
+                {% for hike in user_hikes %} <br> 
+                <a href="{% url 'hike_info' hike.slug %}">{{ hike.hike_name }}</a> 
+                {% endfor %}
+                {% else %}
+                No hikes added...yet!
+                {% endif %}
+            </div>
         </div>
     </div>
     <!-- Check that the user is only able to update their own profile -->

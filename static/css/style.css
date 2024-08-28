@@ -7,7 +7,7 @@ body {
 }
 
 .content-container {
-    margin: 10vh auto;
+    margin: 5vh auto 13vh;
     width: 80%;
     padding-bottom: 10px;
 }
@@ -55,12 +55,18 @@ body {
     justify-content: space-around;
     padding: 10px 10px 30px;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
 }
 
 .profile-image {
     max-width: 200px;
-    border-radius: 50%;;
+    border-radius: 50%;
+    margin: 20px
+}
+
+.profile-info {
+    /* Profile info to take up all remaining space */
+    flex-grow: 1;
 }
 
 /* Hike list */
@@ -106,4 +112,17 @@ body {
     display: flex;
     align-items: right;
     justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+    .content-container {
+        margin: 10vh auto 20vh;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .content-container {
+        width: 900px
+    }
+
 }
