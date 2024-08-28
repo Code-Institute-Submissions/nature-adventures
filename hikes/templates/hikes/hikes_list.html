@@ -2,6 +2,7 @@
 {% load static %}
 
 {% url 'hike_info' as hike_info_url %}
+{% url 'new_hike' as new_hike_url %}
 
 {% block content %}
 
@@ -39,5 +40,14 @@
     </nav>
     {% endif %}
 </div>
+
+{% if user.is_authenticated %}
+<div class="container bg-light add-hike">
+<h6>Is your favourite hike missing?</h6>
+<p> Help your fellow hiking enthusiasts to discover the most amazing routes by adding your favourite hikes.</p>
+ <a href="{% url 'new_hike' %}" class="btn btn-primary">Create a new hiking route</a>   
+</div>
+{% endif %}
+
 
 {% endblock %}

@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
+from django.template.defaultfilters import slugify
 from .models import Hike
+from .forms import CreateHikeForm
 
 # Create your views here.
 
@@ -35,3 +37,25 @@ def hike_info(request, slug):
         "hikes/hike_info.html",
         {"hike": hike},
     )
+
+
+# Create a new hike
+def new_hike(request):
+    if request.user.is_authenticated:
+        hike_form = CreateHikeForm(data=request.POST)
+        if request.method == "POST" and hike_form.is_valid():
+            added_hike = hike_form.save(commit=False)
+            # Add the current user as the author
+            added_hike.author = request.user
+            # Add slugified hike_name as the slug
+            added_hike.slug = slugify(added_hike.hike_name)
+            added_hike.save()
+            return redirect('hikes')
+    return render(
+        request,
+        "hikes/create_hike.html",
+        {"hike_form":hike_form,}
+    )
+
+
+        

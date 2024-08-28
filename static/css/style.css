@@ -66,7 +66,7 @@ body {
 /* Hike list */
 .hike-container {
     padding-top: 5vh;
-    padding-bottom: 5vh;
+    padding-bottom: 2vh;
 }
 
 .hike-nav {
@@ -75,6 +75,14 @@ body {
 
 .hike-row {
     justify-content: center;    
+}
+
+.add-hike {
+    margin: 0 auto 10vh;
+    padding: 10px;
+    max-width: 600px;
+    text-align: center;
+    border-radius: 5px;
 }
 
 /* Footer */

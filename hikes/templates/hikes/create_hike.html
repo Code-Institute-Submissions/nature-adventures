@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container bg-light content-container">
+    <h1 class="profile-title"> Create a Hiking Route: </h1>
+    <form method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ hike_form | crispy }}
+        <br>
+        <button type="submit" class="btn btn-success update-button">Save</button>
+    </form>
+
+{% endblock %}
