@@ -60,4 +60,18 @@ def new_hike(request):
     )
 
 
-        
+# Update a hike
+def update_hike(request, slug):
+    if request.user.is_authenticated:
+        selected_hike = get_object_or_404(Hike, slug=slug)
+        update_form = CreateHikeForm(data = request.POST or None, instance = selected_hike)
+        if request.method == "POST":    
+            if update_form.is_valid():
+                update_form.save()
+                return redirect('hike_info', selected_hike.slug)
+    return render(
+        request,
+        "hikes/update_hike.html",
+        {"selected_hike":selected_hike,
+        "update_form":update_form}
+    )

@@ -25,7 +25,7 @@
                 </div>
                 <div class="row">
                     <div class="col-6 col-md-3 fw-bold">Distance:</div>
-                    <div class="col-6 col-md-9">{{ hike.distance }}</div>
+                    <div class="col-6 col-md-9">{{ hike.distance }} miles</div>
                 </div>
                 <div class="row">
                     <div class="col-6 col-md-3 fw-bold">Author:</div>
@@ -44,7 +44,7 @@
     <!-- Check that the user is only able to update/delete their own route -->
     {% if request.user == hike.author %}
     <div class="modify-btns">
-        <a href="#" class="btn btn-success update-button">Update Route</a>
+        <a href="{% url 'update_hike' hike.slug %}" class="btn btn-success update-button">Update Route</a>
         <a href="#" class="btn btn-success update-button">Delete Route</a>
     </div>
     {% endif %}
