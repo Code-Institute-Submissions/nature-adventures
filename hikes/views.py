@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic
 from django.template.defaultfilters import slugify
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 from .models import Hike
 from .forms import CreateHikeForm
 
@@ -75,3 +76,13 @@ def update_hike(request, slug):
         {"selected_hike":selected_hike,
         "update_form":update_form}
     )
+
+
+# Delete a hike
+def delete_hike(request, slug):
+    if request.user.is_authenticated:
+        selected_hike = get_object_or_404(Hike, slug=slug)
+        if request.user == selected_hike.author:
+            selected_hike.delete()
+            messages.add_message(request, messages.SUCCESS, f'Your hiking route has been deleted successfully!')
+    return HttpResponseRedirect(reverse('hikes'))

@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% url 'profile' as profile_url %}
-
 {% block content %}
 
 
@@ -45,7 +43,9 @@
     {% if request.user == hike.author %}
     <div class="modify-btns">
         <a href="{% url 'update_hike' hike.slug %}" class="btn btn-success update-button">Update Route</a>
-        <a href="#" class="btn btn-success update-button">Delete Route</a>
+        <!-- Button trigger modal -->
+        <!-- Bootstrap -->
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteRouteModal">Delete Route</button>
     </div>
     {% endif %}
 {% else %}
@@ -56,5 +56,27 @@
 {% endif %}
 </main>
 
+<!-- Bootstrap Modal -->
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal fade" id="deleteRouteModal" tabindex="-1" aria-labelledby="deleteRouteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="deleteRouteModalLabel">Are you sure you want to delete this hike?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                You are about to delete <strong>'{{ hike.hike_name }}'</strong> route. <br> <br>
+                Deleting this hike means that a fellow hike enthusiast might never discover this amazing route! <br><br>
+                If you still want to go ahead and delete this route, click Delete. This action cannot be undone!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a id="deleteConfirm" href="{% url 'delete_hike' hike.slug %}" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
