@@ -3,49 +3,47 @@
 
 {% block content %}
 
-
 <main class="container bg-light content-container">
-    <h1 class="page-title"> {{ hike.hike_name }} </h1>
+    <h1 class="page-title p-3"> {{ hike.hike_name }} </h1>
     {% if user.is_authenticated %}
     <div class="container">
         <div class="row m-md-2">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 mb-2">
                 {% if "placehold" in hike.route_image.url %}
-                <img src="{% static 'images/default_hike.jpg' %}" class="img-fluid hike-image" alt="Placeholder hike image">
+                <img src="{% static 'images/default_hike.jpg' %}" class="img-fluid rounded hike-image" alt="Placeholder hike image">
                 {% else %}              
                 <img src="{{ hike.route_image.url }}" alt="{{ hike.hike_name }}" class="card-img-top">
                 {% endif %}
             </div>
-            <div class="col container hike-info m-1">
+            <div class="col container hike-info m-2 align-self-center">
                 <div class="row">
-                    <div class="col-6 col-md-3 fw-bold">Region:</div>
-                    <div class="col-6 col-md-9">{{ hike.region }}</div>
+                    <div class="col-6 col-md-4 fw-bold">Region:</div>
+                    <div class="col-6 col-md-8">{{ hike.region }}</div>
                 </div>
                 <div class="row">
-                    <div class="col-6 col-md-3 fw-bold">Distance:</div>
-                    <div class="col-6 col-md-9">{{ hike.distance }} miles</div>
+                    <div class="col-6 col-md-4 fw-bold">Distance:</div>
+                    <div class="col-6 col-md-8">{{ hike.distance }} miles</div>
                 </div>
                 <div class="row">
-                    <div class="col-6 col-md-3 fw-bold">Author:</div>
+                    <div class="col-6 col-md-4 fw-bold">Author:</div>
                     <!-- Add a link to the author's profile -->
-                    <div class="col-6 col-md-9"><a href="{% url 'profile' hike.author %}">{{ hike.author }}</a></div>
+                    <div class="col-6 col-md-8"><a href="{% url 'profile' hike.author %}">{{ hike.author }}</a></div>
                 </div>
                 <div class="row">
-                    <div class="col-6 col-md-3 fw-bold">Date added:</div>
-                    <div class="col-6 col-md-9">{{ hike.created_on }}</div>
+                    <div class="col-6 col-md-4 fw-bold">Date added:</div>
+                    <div class="col-6 col-md-8">{{ hike.created_on }}</div>
                 </div>
             </div>
-        <div class="m-md-3">
+        <div class="m-2">
             <strong>Description: </strong>{{ hike.description }}
         </div>
     </div>
     <!-- Check that the user is only able to update/delete their own route -->
     {% if request.user == hike.author %}
     <div class="modify-btns">
-        <a href="{% url 'update_hike' hike.slug %}" class="btn btn-success update-button">Update Route</a>
-        <!-- Button trigger modal -->
-        <!-- Bootstrap -->
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteRouteModal">Delete Route</button>
+        <a href="{% url 'update_hike' hike.slug %}" class="btn btn-success modify-button">Update Route</a>
+        <!-- Bootstrap button trigger modal -->
+        <button type="button" class="btn btn-danger modify-button" data-bs-toggle="modal" data-bs-target="#deleteRouteModal">Delete Route</button>
     </div>
     {% endif %}
 {% else %}
