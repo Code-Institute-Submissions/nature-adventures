@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% url 'update_profile' as update_profile_url %}
-<!-- {% load cloudinary %} -->
+{% load cloudinary %}
 
 {% block content %}
 
@@ -11,9 +10,9 @@
         {% if "placeholder" in profile.profile_pic.url %}
         <img src="{% static 'images/nobody.jpg' %}" class="profile-image" alt="Placeholder profile image">
         {% else %}
-        <!-- <img src="{{ profile.profile_pic.url }}" class="profile-image" alt=""> -->
-        {% load cloudinary %}
-        {% cloudinary profile.profile_pic format="png" width=200 height=200 radius=100 %}
+        <img src="{{ profile.profile_pic.url }}" class="profile-image" alt="">
+        <!-- {% load cloudinary %}
+        {% cloudinary profile.profile_pic format="png" width=200 height=200 radius=100 %} -->
         {% endif %}
         <div class="profile-info">
             <div>I am based in <strong>{{ profile.region }}</strong></div>
@@ -23,9 +22,9 @@
             <!-- Links to the hikes that the user has added -->
             <div><strong>My routes:</strong> 
                 {% if user_hikes %} 
-                {% for hike in user_hikes %} <br> 
-                <a href="{% url 'hike_info' hike.slug %}">{{ hike.hike_name }}</a> 
-                {% endfor %}
+                    {% for hike in user_hikes %} <br> 
+                    <a href="{% url 'hike_info' hike.slug %}">{{ hike.hike_name }}</a> 
+                    {% endfor %}
                 {% else %}
                 No hikes added...yet!
                 {% endif %}
@@ -34,10 +33,14 @@
     </div>
     <!-- Check that the user is only able to update their own profile -->
     {% if request.user.id == profile.user.id %}
-    <a href="{% url 'update_profile' %}" class="btn btn-success update-button">Update Profile</a>
+    <div class="modify-btns">
+        <a href="{% url 'update_profile' %}" class="btn btn-success">Update Profile</a>
+        <!-- <div id="upload"></div> -->
+    </div>
+    
+
     {% endif %}
 </main>
-
 
 
 {% endblock %}

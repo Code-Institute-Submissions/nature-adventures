@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.urls import reverse
 from .models import Profile
 from .forms import UpdateProfileForm
 
@@ -26,20 +25,22 @@ def profile(request, username):
             )
 
 
+@login_required
 def update_profile(request):
-    if request.user.is_authenticated:
-        profile_form = UpdateProfileForm(data=request.POST or None, instance=request.user.profile)
-        if request.method == "POST" and profile_form.is_valid():
+    profile_form = UpdateProfileForm(data=request.POST or None, instance=request.user.profile)
+    if request.method == "POST":
+        if profile_form.is_valid():
             profile_form.save()
             messages.add_message(request, messages.SUCCESS, f'Your profile has been updated!')
             return redirect('profile', request.user.username)
+        else:
+            messages.add_message(request, messages.ERROR, f'Something went wrong, please try again.')
+            return redirect('profile', request.user.username)    
     return render(
-            request,
-            "profiles/update_profile.html",
-            {"profile_form":profile_form},
-            )
-    # else:
-    #     messages.add_message(request, messages.ERROR, f'Please login to view this page')
-    #     return redirect('hikes')
+        request,
+        "profiles/update_profile.html",
+        {"profile_form":profile_form},
+        )
+   
 
 
