@@ -10,7 +10,8 @@
         {% csrf_token %}
         {{ hike_form | crispy }}
         <br>
-        <button type="submit" class="btn btn-success update-button">Save</button>
+        <div class="modify-btns"><button type="submit" class="btn btn-success">Save</button></div>
+        
     </form>
 
 {% endblock %}

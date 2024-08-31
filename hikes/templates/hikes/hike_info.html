@@ -12,7 +12,7 @@
                 {% if "placehold" in hike.route_image.url %}
                 <img src="{% static 'images/default_hike.jpg' %}" class="img-fluid rounded hike-image" alt="Placeholder hike image">
                 {% else %}              
-                <img src="{{ hike.route_image.url }}" alt="{{ hike.hike_name }}" class="card-img-top">
+                <img src="{{ hike.route_image.url }}" alt="{{ hike.hike_name }}" class="card-img-top rounded">
                 {% endif %}
             </div>
             <div class="col container hike-info m-2 align-self-center">
@@ -41,9 +41,9 @@
     <!-- Check that the user is only able to update/delete their own route -->
     {% if request.user == hike.author %}
     <div class="modify-btns">
-        <a href="{% url 'update_hike' hike.slug %}" class="btn btn-success modify-button">Update Route</a>
+        <a href="{% url 'update_hike' hike.slug %}" class="btn btn-success">Update Route</a>
         <!-- Bootstrap button trigger modal -->
-        <button type="button" class="btn btn-danger modify-button" data-bs-toggle="modal" data-bs-target="#deleteRouteModal">Delete Route</button>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteRouteModal">Delete Route</button>
     </div>
     {% endif %}
 {% else %}

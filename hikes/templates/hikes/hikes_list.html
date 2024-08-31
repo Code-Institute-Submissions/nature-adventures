@@ -12,15 +12,15 @@
         <div class="col">
             <div class="card hike-card">
                 {% if "placehold" in hike.route_image.url %}
-                <img src="{% static 'images/default_hike.jpg' %}" class="card-img-top" alt="Default image of people hiking">
+                <img src="{% static 'images/default_hike.jpg' %}" class="card-img-top card-img" alt="Default image of people hiking">
                 {% else %}
-                <img src="{{ hike.route_image.url }}" alt="{{ hike.hike_name }}" class="card-img-top">
+                <img src="{{ hike.route_image.url }}" alt="{{ hike.hike_name }}" class="card-img-top card-img">
                 {% endif %}
                 <div class="card-body">
                     <h5 class="card-title"> {{ hike.hike_name }}</h5>
                     <p class="card-text">{{ hike.region }}</p>
                     <p class="card-text">{{ hike.distance }} miles </p>
-                    <a href="{% url 'hike_info' hike.slug %}" class="btn btn-primary">View the route</a>
+                    <a href="{% url 'hike_info' hike.slug %}" class="btn btn-warning">View the route</a>
                 </div>
             </div>
         </div>
@@ -31,10 +31,10 @@
     <nav aria-label="Navigation controls" class="hike-nav">
         <ul class="pagination justify-content-center">
             {% if page_obj.has_previous %}
-            <li class="pagination-nav"><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a></li>
+            <li class="pagination-nav"><a href="?page={{ page_obj.previous_page_number }}" class="page-link text-light bg-success">&laquo; PREV</a></li>
             {% endif %}
             {% if page_obj.has_next %}
-            <li class="pagination-nav"><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            <li class="pagination-nav"><a href="?page={{ page_obj.next_page_number }}" class="page-link text-success bg-light"> NEXT &raquo;</a></li>
             {% endif %}
         </ul>
     </nav>
@@ -46,7 +46,7 @@
 <h6>Is your favourite hike missing?</h6>
 <p> Help your fellow hiking enthusiasts to discover the most amazing routes by adding your favourite hikes.</p>
 {% if user.is_authenticated %}
-<a href="{% url 'new_hike' %}" class="btn btn-primary">Create a new hiking route</a>
+<a href="{% url 'new_hike' %}" class="btn btn-success">Create a new hiking route</a>
 <!-- Require non-authenticated users to register or login -->
 {% else %}
 <div class="alert alert-success" role="alert">
