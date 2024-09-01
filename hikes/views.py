@@ -44,16 +44,17 @@ def hike_info(request, slug):
 # Create a new hike
 def new_hike(request):
     if request.user.is_authenticated:
-        hike_form = CreateHikeForm(data=request.POST)
-        if request.method == "POST" and hike_form.is_valid():
-            added_hike = hike_form.save(commit=False)
-            # Add the current user as the author
-            added_hike.author = request.user
-            # Add slugified hike_name as the slug
-            added_hike.slug = slugify(added_hike.hike_name)
-            added_hike.save()
-            messages.add_message(request, messages.SUCCESS, f'Your hiking route has been added successfully!')
-            return redirect('hike_info', added_hike.slug)
+        hike_form = CreateHikeForm(data=request.POST or None, files=request.FILES or None)
+        if request.method == "POST":
+            if hike_form.is_valid():
+                added_hike = hike_form.save(commit=False)
+                # Add the current user as the author
+                added_hike.author = request.user
+                # Add slugified hike_name as the slug
+                added_hike.slug = slugify(added_hike.hike_name)
+                added_hike.save()
+                messages.add_message(request, messages.SUCCESS, f'Your hiking route has been added successfully!')
+                return redirect('hike_info', added_hike.slug)
     return render(
         request,
         "hikes/create_hike.html",
@@ -65,7 +66,7 @@ def new_hike(request):
 def update_hike(request, slug):
     if request.user.is_authenticated:
         selected_hike = get_object_or_404(Hike, slug=slug)
-        update_form = CreateHikeForm(data = request.POST or None, instance = selected_hike)
+        update_form = CreateHikeForm(data = request.POST or None, files=request.FILES or None, instance = selected_hike)
         if request.method == "POST":    
             if update_form.is_valid():
                 update_form.save()
