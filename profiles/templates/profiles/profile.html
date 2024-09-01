@@ -1,19 +1,19 @@
 {% extends "base.html" %}
 {% load static %}
-{% load cloudinary %}
 
 {% block content %}
 
 <main class="container bg-light content-container">
     <h1 class="page-title"> {{ profile.user.username }} </h1>
     <div class="profile-content">
-        {% if "placeholder" in profile.profile_pic.url %}
-        <img src="{% static 'images/nobody.jpg' %}" class="profile-image" alt="Placeholder profile image">
-        {% else %}
-        <img src="{{ profile.profile_pic.url }}" class="profile-image" alt="">
-        <!-- {% load cloudinary %}
-        {% cloudinary profile.profile_pic format="png" width=200 height=200 radius=100 %} -->
-        {% endif %}
+        <div class="img-container">
+            {% if "placeholder" in profile.profile_pic.url %}
+            <img src="{% static 'images/nobody.jpg' %}" class="profile-image" alt="Placeholder profile image">
+            {% else %}
+            {% load cloudinary %}
+            {% cloudinary profile.profile_pic format="png" width=200 height=200 radius=100 crop="fill" gravity="auto" %}
+            {% endif %}
+        </div>
         <div class="profile-info">
             <div>I am based in <strong>{{ profile.region }}</strong></div>
             <br>

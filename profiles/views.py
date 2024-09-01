@@ -27,7 +27,7 @@ def profile(request, username):
 
 @login_required
 def update_profile(request):
-    profile_form = UpdateProfileForm(data=request.POST or None, instance=request.user.profile)
+    profile_form = UpdateProfileForm(data=request.POST or None, files=request.FILES or None, instance=request.user.profile)
     if request.method == "POST":
         if profile_form.is_valid():
             profile_form.save()
