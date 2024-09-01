@@ -31,15 +31,14 @@
             </div>
         </div>
     </div>
-    <!-- Check that the user is only able to update their own profile -->
-    {% if request.user.id == profile.user.id %}
+    <!-- Buttons to edit profile and return to the Hikes pages-->
     <div class="modify-btns">
-        <a href="{% url 'update_profile' %}" class="btn btn-success">Update Profile</a>
-        <!-- <div id="upload"></div> -->
-    </div>
-    
-
-    {% endif %}
+        <!-- Check that the user is only able to update their own profile -->
+        <a href="{% url 'hikes' %}" class="btn btn-success">Return to Hikes</a>
+        {% if request.user.id == profile.user.id %}    
+        <a href="{% url 'update_profile' %}" class="btn btn-warning">Update Profile</a>
+        {% endif %}    
+    </div>  
 </main>
 
 
