@@ -32,7 +32,8 @@
     <nav aria-label="Pagination navigation controls" class="hike-nav">
         <ul class="pagination justify-content-center">
             <li class="page-item">
-                <a class="page-link {% if page_obj.number == 1 %}disabled{% endif %}" href="?page=1">First Page</a>
+                <a class="page-link {% if page_obj.number == 1 %}disabled{% endif %}" 
+                href="{% if page_obj.has_previous %} ?page={{ page_obj.previous_page_number }} {% endif %}">Previous</a>
             </li>
             {% if page_obj.has_previous %}
             <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a></li>
@@ -44,7 +45,8 @@
             <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a></li>
             {% endif %}
             <li class="page-item">
-                <a class="page-link {% if page_obj.number == paginator.num_pages %}disabled{% endif %} " href="?page={{ paginator.num_pages }}">Last Page</a>
+                <a class="page-link {% if page_obj.number == paginator.num_pages %}disabled{% endif %}" 
+                href="{% if page_obj.has_next %} ?page={{ page_obj.next_page_number }} {% endif %}">Next</a>
             </li>
         </ul>
       </nav>
