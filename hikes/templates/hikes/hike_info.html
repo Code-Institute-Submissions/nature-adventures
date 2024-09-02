@@ -31,7 +31,8 @@
                 </div>
                 <div class="row">
                     <div class="col-6 col-md-4 fw-bold">Date added:</div>
-                    <div class="col-6 col-md-8">{{ hike.created_on }}</div>
+                    <!-- Display date in the format '28 Aug 2024' -->
+                    <div class="col-6 col-md-8">{{ hike.created_on|date:'d M Y' }}</div>
                 </div>
             </div>
         <div class="m-2">
