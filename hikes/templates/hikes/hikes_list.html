@@ -31,19 +31,32 @@
     {% if is_paginated %}
     <nav aria-label="Pagination navigation controls" class="hike-nav">
         <ul class="pagination justify-content-center">
+            <!-- Disable 'previous' button if on the first page -->
             <li class="page-item">
                 <a class="page-link {% if page_obj.number == 1 %}disabled{% endif %}" 
                 href="{% if page_obj.has_previous %} ?page={{ page_obj.previous_page_number }} {% endif %}">Previous</a>
             </li>
+            <!-- Add the page before 'previous' to the navigation control if on the last page -->
+            {% if not page_obj.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number|add:'-1' }}">{{ page_obj.previous_page_number|add:'-1' }}</a></li>
+            {% endif %}
+            <!-- Previous page if not on the first page -->
             {% if page_obj.has_previous %}
             <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a></li>
             {% endif %}
+            <!-- Current page -->
             <li class="page-item" aria-current="page">
                 <span class="page-link text-dark bg-warning">{{ page_obj.number }}</span>
             </li>
+            <!-- Next page if not on the last page -->
             {% if page_obj.has_next %}
             <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a></li>
             {% endif %}
+            <!-- Add the page after 'next' if on the first page -->
+            {% if not page_obj.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number|add:'1' }}">{{ page_obj.next_page_number|add:'1' }}</a></li>
+            {% endif %}
+            <!-- Disable 'next' button if on the last page -->
             <li class="page-item">
                 <a class="page-link {% if page_obj.number == paginator.num_pages %}disabled{% endif %}" 
                 href="{% if page_obj.has_next %} ?page={{ page_obj.next_page_number }} {% endif %}">Next</a>
