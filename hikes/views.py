@@ -3,7 +3,7 @@ from django.views import generic
 from django.template.defaultfilters import slugify
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Hike
+from .models import Hike, Like
 from .forms import CreateHikeForm
 
 # Create your views here.
@@ -33,11 +33,14 @@ def hike_info(request, slug):
 
     queryset = Hike.objects.all()
     hike = get_object_or_404(queryset, slug=slug)
+    #Count the number of times the hike has been liked
+    likes = Like.objects.filter(hike=hike).count()
 
     return render(
         request,
         "hikes/hike_info.html",
-        {"hike": hike},
+        {"hike": hike,
+        "likes": likes},
     )
 
 
@@ -87,3 +90,13 @@ def delete_hike(request, slug):
             selected_hike.delete()
             messages.add_message(request, messages.SUCCESS, f'Your hiking route has been deleted successfully!')
     return HttpResponseRedirect(reverse('hikes'))
+
+
+def like_hike(request, slug):
+    if request.user.is_authenticated:
+        hike = get_object_or_404(Hike, slug=slug)
+        # https://stackoverflow.com/questions/55434253/how-to-create-a-like-functionality-in-django-for-a-blog
+        new_like, created = Like.objects.get_or_create(user=request.user, hike=hike)
+        # if not created:
+        #     new_like.remove(user=request.user)
+        return redirect('hike_info', hike.slug)

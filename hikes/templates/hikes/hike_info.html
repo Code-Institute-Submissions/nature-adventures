@@ -34,7 +34,15 @@
                     <!-- Display date in the format '28 Aug 2024' -->
                     <div class="col-6 col-md-8">{{ hike.created_on|date:'d M Y' }}</div>
                 </div>
+                <div class="row">
+                    <div class="col-6 col-md-4 fw-bold">Likes:</div>
+                    <div class="col-6 col-md-8" id="hike-likes">{{ likes }} likes</div>
+                </div>
+                <div class="row">
+                    <a href="{% url 'like_hike' hike.slug %}" onclick="likeHike()" id="like-btn">Like</a>
+                </div>
             </div>
+        </div>
         <div class="m-2">
             <strong>Description: </strong>{{ hike.description }}
         </div>

@@ -20,6 +20,7 @@ REGIONS =  (
     ("South West", "South West"),
 )
 
+
 class Hike(models.Model):
     hike_name = models.CharField(max_length=100, unique=True)
     region = models.CharField(choices=REGIONS)
@@ -37,5 +38,20 @@ class Hike(models.Model):
 
     def __str__(self):
         return f"{self.hike_name}"
+
+
+# Like model to indicate which hikes users have liked
+class Like(models.Model):
+    hike = models.ForeignKey(Hike, on_delete=models.CASCADE, related_name="hike_likes")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="liked_hikes")
+
+    # https://docs.djangoproject.com/en/5.0/ref/models/constraints/#uniqueconstraint
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['hike', 'user'], name='unique_like'),
+        ]
+
+    def __str__(self):
+        return f"{self.user.username} likes '{self.hike.hike_name}' hike"
 
 
