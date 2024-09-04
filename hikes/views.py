@@ -98,8 +98,11 @@ def like_hike(request, slug):
         hike = get_object_or_404(Hike, slug=slug)
         user = request.user
         # https://stackoverflow.com/questions/51206549/django-create-or-delete-object
-        try:
-            Like.objects.get(user=user, hike=hike).delete()
-        except Like.DoesNotExist:
-            Like.objects.create(user=user, hike=hike)
+        if request.user != hike.author:
+            try:
+                Like.objects.get(user=user, hike=hike).delete()
+            except Like.DoesNotExist:
+                Like.objects.create(user=user, hike=hike)
+        else:
+            messages.add_message(request, messages.ERROR, f'You cannot like your own route!')
         return redirect('hike_info', hike.slug)
