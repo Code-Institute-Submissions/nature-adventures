@@ -52,8 +52,21 @@ body {
 }
 
 .modify-button {
-    margin: 10px auto 10px;
+    margin: 10px auto;
     width: 130px;
+}
+
+#like-btn {
+    margin: 10px auto;
+}
+
+.like-symbol {
+    font-size: 30px;
+    color:#157347
+}
+
+.like-symbol:hover {
+    color:black;
 }
 
 /* Profile page */
