@@ -92,11 +92,14 @@ def delete_hike(request, slug):
     return HttpResponseRedirect(reverse('hikes'))
 
 
+# Like a Hike or remove a Like
 def like_hike(request, slug):
     if request.user.is_authenticated:
         hike = get_object_or_404(Hike, slug=slug)
-        # https://stackoverflow.com/questions/55434253/how-to-create-a-like-functionality-in-django-for-a-blog
-        new_like, created = Like.objects.get_or_create(user=request.user, hike=hike)
-        # if not created:
-        #     new_like.remove(user=request.user)
+        user = request.user
+        # https://stackoverflow.com/questions/51206549/django-create-or-delete-object
+        try:
+            Like.objects.get(user=user, hike=hike).delete()
+        except Like.DoesNotExist:
+            Like.objects.create(user=user, hike=hike)
         return redirect('hike_info', hike.slug)
