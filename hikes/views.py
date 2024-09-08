@@ -35,12 +35,17 @@ def hike_info(request, slug):
     hike = get_object_or_404(queryset, slug=slug)
     #Count the number of times the hike has been liked
     likes = Like.objects.filter(hike=hike).count()
-
+    
+    # Create a list of users who have liked the hike
+    # How to use values list and flat taken from https://stackoverflow.com/questions/37205793/django-values-list-vs-values
+    liked_hike = list(Like.objects.filter(hike=hike).values_list("user__username", flat=True))
+    
     return render(
         request,
         "hikes/hike_info.html",
         {"hike": hike,
-        "likes": likes},
+        "likes": likes,
+        "liked_hike": liked_hike,},
     )
 
 
