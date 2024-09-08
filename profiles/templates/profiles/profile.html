@@ -29,6 +29,17 @@
                 No hikes added...yet!
                 {% endif %}
             </div>
+            <br>
+            <!-- Links to the hikes that the user has liked -->
+            <div><strong>Hikes I like:</strong>
+                {% if user_likes %} 
+                    {% for like in user_likes %} <br> 
+                    <a href="{% url 'hike_info' like|slugify %}">{{ like }}</a> 
+                    {% endfor %}
+                {% else %}
+                No hikes liked...yet!
+                {% endif %}
+            </div>
         </div>
     </div>
     <!-- Buttons to edit profile and return to the Hikes pages-->
