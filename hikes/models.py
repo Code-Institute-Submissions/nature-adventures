@@ -26,7 +26,7 @@ class Hike(models.Model):
     Stores a single hiking route related to :model:`auth.User`
     """
     hike_name = models.CharField(max_length=100, unique=True)
-    region = models.CharField(choices=REGIONS)
+    region = models.CharField(choices=REGIONS, max_length=100)
     distance = models.IntegerField(
         validators=[MinValueValidator(1),
                     MaxValueValidator(200)
