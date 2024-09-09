@@ -5,7 +5,7 @@ from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
-REGIONS =  (
+REGIONS = (
     ("Wales", "Wales"),
     ("Scotland", "Scotland"),
     ("Northern Ireland", "Northern Ireland"),
@@ -23,6 +23,8 @@ REGIONS =  (
 # Inspiration taken from:
 # https://dev.to/earthcomfy/django-user-profile-3hik
 # and https://www.youtube.com/watch?v=KNvSWubOaQY
+
+
 class Profile(models.Model):
     """
     Stores a single profile related to :model:`auth.User`
@@ -38,6 +40,8 @@ class Profile(models.Model):
 # How to create profile automatically using signals taken from:
 # https://www.youtube.com/watch?v=H8MmNqDyra8&list=
 # PLCC34OHNcOtoQCR6K4RgBWNi3-7yGgg7b&index=3
+
+
 def create_profile(sender, instance, created, **kwargs):
     """
     Create a profile automatically when a new user signs up
@@ -45,5 +49,6 @@ def create_profile(sender, instance, created, **kwargs):
     if created:
         user_profile = Profile(user=instance)
         user_profile.save()
+
 
 post_save.connect(create_profile, sender=User)

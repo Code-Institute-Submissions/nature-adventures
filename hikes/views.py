@@ -51,9 +51,9 @@ def hike_info(request, slug):
 
     queryset = Hike.objects.all()
     hike = get_object_or_404(queryset, slug=slug)
-    #Count the number of times the hike has been liked
+    # Count the number of times the hike has been liked
     likes = Like.objects.filter(hike=hike).count()
-    
+
     # Create a list of users who have liked the hike
     # How to use values list and flat taken from:
     # https://stackoverflow.com/questions/37205793/
@@ -63,13 +63,13 @@ def hike_info(request, slug):
             "user__username",
             flat=True)
     )
-    
+
     return render(
         request,
         "hikes/hike_info.html",
         {"hike": hike,
-        "likes": likes,
-        "liked_hike": liked_hike,},
+         "likes": likes,
+         "liked_hike": liked_hike, },
     )
 
 
@@ -88,9 +88,9 @@ def new_hike(request):
     """
     if request.user.is_authenticated:
         hike_form = CreateHikeForm(
-            data=request.POST or None, 
+            data=request.POST or None,
             files=request.FILES or None
-            )
+        )
         if request.method == "POST":
             if hike_form.is_valid():
                 added_hike = hike_form.save(commit=False)
@@ -100,14 +100,14 @@ def new_hike(request):
                 added_hike.slug = slugify(added_hike.hike_name)
                 added_hike.save()
                 messages.add_message(
-                    request, 
-                    messages.SUCCESS, 
+                    request,
+                    messages.SUCCESS,
                     f'Your hiking route has been added successfully!')
                 return redirect('hike_info', added_hike.slug)
     return render(
         request,
         "hikes/create_hike.html",
-        {"hike_form":hike_form,}
+        {"hike_form": hike_form, }
     )
 
 
@@ -123,25 +123,25 @@ def update_hike(request, slug):
         An instance of :form:`hikes.CreateHikeForm`
 
     **Template**
-    
+
     :template:`hikes/update_hike.html`
     """
     if request.user.is_authenticated:
         selected_hike = get_object_or_404(Hike, slug=slug)
         update_form = CreateHikeForm(
-            data = request.POST or None,
+            data=request.POST or None,
             files=request.FILES or None,
-            instance = selected_hike
-            )
-        if request.method == "POST":    
+            instance=selected_hike
+        )
+        if request.method == "POST":
             if update_form.is_valid():
                 update_form.save()
                 return redirect('hike_info', selected_hike.slug)
     return render(
         request,
         "hikes/update_hike.html",
-        {"selected_hike":selected_hike,
-        "update_form":update_form}
+        {"selected_hike": selected_hike,
+         "update_form": update_form}
     )
 
 
@@ -158,9 +158,10 @@ def delete_hike(request, slug):
         selected_hike = get_object_or_404(Hike, slug=slug)
         if request.user == selected_hike.author:
             selected_hike.delete()
-            messages.add_message(request,
-            messages.SUCCESS,
-            f'Your hiking route has been deleted successfully!')
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                f'Your hiking route has been deleted successfully!')
     return HttpResponseRedirect(reverse('hikes'))
 
 

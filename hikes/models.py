@@ -5,7 +5,7 @@ from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
-REGIONS =  (
+REGIONS = (
     ("Wales", "Wales"),
     ("Scotland", "Scotland"),
     ("Northern Ireland", "Northern Ireland"),
@@ -29,19 +29,19 @@ class Hike(models.Model):
     region = models.CharField(choices=REGIONS)
     distance = models.IntegerField(
         validators=[MinValueValidator(1),
-        MaxValueValidator(200)
-    ])
+                    MaxValueValidator(200)
+                    ])
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
         related_name="hiking_routes"
-        )
+    )
     created_on = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
     slug = models.SlugField(max_length=100, unique=True)
     route_image = CloudinaryField('image', default='placeholder')
 
-    class Meta: 
+    class Meta:
         pass
 
     def __str__(self):
@@ -57,16 +57,16 @@ class Like(models.Model):
         Hike,
         on_delete=models.CASCADE,
         related_name="hike_likes"
-        )
+    )
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
         related_name="liked_hikes"
-        )
+    )
 
     # Allow each user to give each like only one like
     # How to use UniqueConstraint taken from:
-    # https://hackajob.com/talent/blog/djangos-new-database-constraints 
+    # https://hackajob.com/talent/blog/djangos-new-database-constraints
     class Meta:
         constraints = [
             models.UniqueConstraint(
@@ -76,5 +76,3 @@ class Like(models.Model):
 
     def __str__(self):
         return f"{self.user.username} likes '{self.hike.hike_name}' hike"
-
-

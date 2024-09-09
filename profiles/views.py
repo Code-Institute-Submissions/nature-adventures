@@ -9,6 +9,7 @@ from hikes.models import Like
 
 # Create your views here.
 
+
 @login_required
 def profile(request, username):
     """
@@ -41,11 +42,11 @@ def profile(request, username):
             flat=True)
     )
     return render(
-            request, 
-            "profiles/profile.html", 
-            {"profile":profile,
-            "user_hikes": user_hikes,
-            "user_likes": user_likes,},
+        request,
+        "profiles/profile.html",
+        {"profile": profile,
+         "user_hikes": user_hikes,
+         "user_likes": user_likes, },
     )
 
 
@@ -58,9 +59,9 @@ def update_profile(request):
 
     ``profile_form``
         An instance of :form:`profiles.UpdateProfileForm`
-    
+
     **Template**
-    
+
     :template:`profiles/update_profile.html`
     """
     profile_form = UpdateProfileForm(
@@ -83,12 +84,9 @@ def update_profile(request):
                 messages.ERROR,
                 f'Something went wrong, please try again.'
             )
-            return redirect('profile', request.user.username)    
+            return redirect('profile', request.user.username)
     return render(
         request,
         "profiles/update_profile.html",
-        {"profile_form":profile_form},
+        {"profile_form": profile_form},
     )
-   
-
-

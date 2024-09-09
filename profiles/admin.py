@@ -6,11 +6,14 @@ from .models import Profile
 
 # How to stack inline taken from:
 #  https://www.youtube.com/watch?v=KNvSWubOaQY
+
+
 class ProfileInline(admin.StackedInline):
     """
     Stack Profiles inline to User
     """
     model = Profile
+
 
 class UserAdmin(admin.ModelAdmin):
     """
@@ -19,6 +22,7 @@ class UserAdmin(admin.ModelAdmin):
     model = User
     fields = ["username", "password"]
     inlines = [ProfileInline]
+
 
 admin.site.unregister(User)
 

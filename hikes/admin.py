@@ -3,6 +3,7 @@ from .models import Hike
 
 # Register your models here.
 
+
 class HikeAdmin(admin.ModelAdmin):
     """
     Shows the fields displayed on admin site
@@ -15,8 +16,9 @@ class HikeAdmin(admin.ModelAdmin):
         "author",
         "description",
         "route_image",
-        )
+    )
     prepopulated_fields = {"slug": ("hike_name",)}
+
 
 # Register the Hike Model
 admin.site.register(Hike, HikeAdmin)

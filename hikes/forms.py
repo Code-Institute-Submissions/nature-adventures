@@ -17,4 +17,4 @@ class CreateHikeForm(forms.ModelForm):
             'distance',
             'description',
             'route_image'
-            ]
+        ]
