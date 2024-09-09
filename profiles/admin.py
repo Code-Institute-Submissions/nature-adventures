@@ -4,11 +4,18 @@ from .models import Profile
 
 # Register your models here.
 
-# https://www.youtube.com/watch?v=KNvSWubOaQY
+# How to stack inline taken from:
+#  https://www.youtube.com/watch?v=KNvSWubOaQY
 class ProfileInline(admin.StackedInline):
+    """
+    Stack Profiles inline to User
+    """
     model = Profile
 
 class UserAdmin(admin.ModelAdmin):
+    """
+    Lists fields displayed on admin site
+    """
     model = User
     fields = ["username", "password"]
     inlines = [ProfileInline]

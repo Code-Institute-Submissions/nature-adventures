@@ -8,11 +8,11 @@ from cloudinary.models import CloudinaryField
 REGIONS =  (
     ("Wales", "Wales"),
     ("Scotland", "Scotland"),
-    ("N. Ireland", "Northern Ireland"),
+    ("Northern Ireland", "Northern Ireland"),
     ("London", "London"),
     ("North East", "North East"),
     ("North West", "North West"),
-    ("Yorks", "Yorkshire"),
+    ("Yorkshire", "Yorkshire"),
     ("East Midlands", "East Midlands"),
     ("West Midlands", "West Midlands"),
     ("South East", "South East"),
@@ -20,9 +20,13 @@ REGIONS =  (
     ("South West", "South West"),
 )
 
-#https://dev.to/earthcomfy/django-user-profile-3hik
-#https://www.youtube.com/watch?v=KNvSWubOaQY
+# Inspiration taken from:
+# https://dev.to/earthcomfy/django-user-profile-3hik
+# and https://www.youtube.com/watch?v=KNvSWubOaQY
 class Profile(models.Model):
+    """
+    Stores a single profile related to :model:`auth.User`
+    """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     region = models.CharField(choices=REGIONS)
     profile_pic = CloudinaryField('image', default="placeholder")
@@ -31,9 +35,13 @@ class Profile(models.Model):
     def __str__(self):
         return f"{self.user.username}"
 
-#Create Profile automatically when new user signs up
-#https://docs.djangoproject.com/en/5.1/topics/signals/
+# How to create profile automatically using signals taken from:
+# https://www.youtube.com/watch?v=H8MmNqDyra8&list=
+# PLCC34OHNcOtoQCR6K4RgBWNi3-7yGgg7b&index=3
 def create_profile(sender, instance, created, **kwargs):
+    """
+    Create a profile automatically when a new user signs up
+    """
     if created:
         user_profile = Profile(user=instance)
         user_profile.save()
