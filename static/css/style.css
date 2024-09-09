@@ -17,13 +17,6 @@ body {
     padding-top: 30px;
 }
 
-/* Navbar */
-.auth-links {
-    display: flex;
-    gap: 10px;
-    margin-right: 50px;
-}
-
 /* Login */
 .login-container {
     background-color: #F8F9FA;
