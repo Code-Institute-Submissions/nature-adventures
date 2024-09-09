@@ -26,7 +26,7 @@ class Profile(models.Model):
     Stores a single profile related to :model:`auth.User`
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    region = models.CharField(choices=REGIONS)
+    region = models.CharField(choices=REGIONS, max_length=100)
     profile_pic = CloudinaryField('image', default="placeholder")
     about = models.TextField()
 
