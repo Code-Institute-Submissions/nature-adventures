@@ -20,10 +20,6 @@ REGIONS = (
     ("South West", "South West"),
 )
 
-# Inspiration taken from:
-# https://dev.to/earthcomfy/django-user-profile-3hik
-# and https://www.youtube.com/watch?v=KNvSWubOaQY
-
 
 class Profile(models.Model):
     """
@@ -36,10 +32,6 @@ class Profile(models.Model):
 
     def __str__(self):
         return f"{self.user.username}"
-
-# How to create profile automatically using signals taken from:
-# https://www.youtube.com/watch?v=H8MmNqDyra8&list=
-# PLCC34OHNcOtoQCR6K4RgBWNi3-7yGgg7b&index=3
 
 
 def create_profile(sender, instance, created, **kwargs):
