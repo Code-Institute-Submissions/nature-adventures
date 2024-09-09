@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.template.defaultfilters import slugify
 from .models import Profile
 from .forms import UpdateProfileForm
 from hikes.models import Like
@@ -75,14 +74,14 @@ def update_profile(request):
             messages.add_message(
                 request,
                 messages.SUCCESS,
-                f'Your profile has been updated!'
+                'Your profile has been updated!'
             )
             return redirect('profile', request.user.username)
         else:
             messages.add_message(
                 request,
                 messages.ERROR,
-                f'Something went wrong, please try again.'
+                'Something went wrong, please try again.'
             )
             return redirect('profile', request.user.username)
     return render(

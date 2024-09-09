@@ -102,7 +102,7 @@ def new_hike(request):
                 messages.add_message(
                     request,
                     messages.SUCCESS,
-                    f'Your hiking route has been added successfully!')
+                    'Your hiking route has been added successfully!')
                 return redirect('hike_info', added_hike.slug)
     return render(
         request,
@@ -161,7 +161,7 @@ def delete_hike(request, slug):
             messages.add_message(
                 request,
                 messages.SUCCESS,
-                f'Your hiking route has been deleted successfully!')
+                'Your hiking route has been deleted successfully!')
     return HttpResponseRedirect(reverse('hikes'))
 
 
@@ -190,5 +190,5 @@ def like_hike(request, slug):
             messages.add_message(
                 request,
                 messages.ERROR,
-                f'You cannot like your own route!')
+                'You cannot like your own route!')
         return redirect('hike_info', hike.slug)
