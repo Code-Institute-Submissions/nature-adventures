@@ -22,12 +22,20 @@ REGIONS =  (
 
 
 class Hike(models.Model):
+    """
+    Stores a single hiking route related to :model:`auth.User`
+    """
     hike_name = models.CharField(max_length=100, unique=True)
     region = models.CharField(choices=REGIONS)
-    distance = models.IntegerField(validators=[
-        MinValueValidator(1), MaxValueValidator(200)
+    distance = models.IntegerField(
+        validators=[MinValueValidator(1),
+        MaxValueValidator(200)
     ])
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="hiking_routes")
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="hiking_routes"
+        )
     created_on = models.DateTimeField(auto_now_add=True)
     description = models.TextField()
     slug = models.SlugField(max_length=100, unique=True)
@@ -40,15 +48,30 @@ class Hike(models.Model):
         return f"{self.hike_name}"
 
 
-# Like model to indicate which hikes users have liked
 class Like(models.Model):
-    hike = models.ForeignKey(Hike, on_delete=models.CASCADE, related_name="hike_likes")
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="liked_hikes")
+    """
+    Stores a single like related to :model:`auth.User` and
+    :model:`hikes.Hike`
+    """
+    hike = models.ForeignKey(
+        Hike,
+        on_delete=models.CASCADE,
+        related_name="hike_likes"
+        )
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="liked_hikes"
+        )
 
-    # https://docs.djangoproject.com/en/5.0/ref/models/constraints/#uniqueconstraint
+    # Allow each user to give each like only one like
+    # How to use UniqueConstraint taken from:
+    # https://hackajob.com/talent/blog/djangos-new-database-constraints 
     class Meta:
         constraints = [
-            models.UniqueConstraint(fields=['hike', 'user'], name='unique_like'),
+            models.UniqueConstraint(
+                fields=['hike', 'user'],
+                name='unique_like'),
         ]
 
     def __str__(self):

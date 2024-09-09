@@ -6,17 +6,31 @@ from django.http import HttpResponseRedirect
 from .models import Hike, Like
 from .forms import CreateHikeForm
 
-# Create your views here.
 
-# Display a list view of all the added hikes
 class HikesList(generic.ListView):
+    """
+    Returns all added hikes in :model:`hikes.Hike`
+    and displays 3 hikes per page.
+
+    **Context**
+
+    ``queryset``
+        All instances of :model:`hikes.Hike`
+    ``context_object_name``
+        User-friendly name of the object returned
+    ``paginate_by``
+        Number of posts per page
+
+    **Template**
+
+    :template:`hikes/hikes_list.html`
+    """
     queryset = Hike.objects.all()
     template_name = "hikes/hikes_list.html"
     context_object_name = "hikes_list"
     paginate_by = 3
 
 
-# Display detailed information about the selected hike
 def hike_info(request, slug):
     """
     Display an individual :model:`hikes.Hike`.
@@ -25,6 +39,10 @@ def hike_info(request, slug):
 
     ``hike``
     An instance of :model:`hikes.Hike`.
+    ``likes``
+    A count of all likes the hike has received
+    ``liked_hike``
+    A list of users who have liked the hike
 
     **Template**
 
@@ -37,8 +55,14 @@ def hike_info(request, slug):
     likes = Like.objects.filter(hike=hike).count()
     
     # Create a list of users who have liked the hike
-    # How to use values list and flat taken from https://stackoverflow.com/questions/37205793/django-values-list-vs-values
-    liked_hike = list(Like.objects.filter(hike=hike).values_list("user__username", flat=True))
+    # How to use values list and flat taken from:
+    # https://stackoverflow.com/questions/37205793/
+    # django-values-list-vs-values
+    liked_hike = list(
+        Like.objects.filter(hike=hike).values_list(
+            "user__username",
+            flat=True)
+    )
     
     return render(
         request,
@@ -49,10 +73,24 @@ def hike_info(request, slug):
     )
 
 
-# Create a new hike
 def new_hike(request):
+    """
+    Allow user to add a new hike
+
+    **Context**
+
+    ``hike_form``
+        An instance of of :form:`hikes.CreateHikeForm`
+
+    ** Template **
+
+    :template:`hikes/create.hike.html`
+    """
     if request.user.is_authenticated:
-        hike_form = CreateHikeForm(data=request.POST or None, files=request.FILES or None)
+        hike_form = CreateHikeForm(
+            data=request.POST or None, 
+            files=request.FILES or None
+            )
         if request.method == "POST":
             if hike_form.is_valid():
                 added_hike = hike_form.save(commit=False)
@@ -61,7 +99,10 @@ def new_hike(request):
                 # Add slugified hike_name as the slug
                 added_hike.slug = slugify(added_hike.hike_name)
                 added_hike.save()
-                messages.add_message(request, messages.SUCCESS, f'Your hiking route has been added successfully!')
+                messages.add_message(
+                    request, 
+                    messages.SUCCESS, 
+                    f'Your hiking route has been added successfully!')
                 return redirect('hike_info', added_hike.slug)
     return render(
         request,
@@ -70,11 +111,28 @@ def new_hike(request):
     )
 
 
-# Update a hike
 def update_hike(request, slug):
+    """
+    Display :form:`hikes.CreateHikeForm` for edit.
+
+    ** Context **
+
+    ``selected_hike``
+        An instance of :model:`hikes.Hike`
+    ``update_form``
+        An instance of :form:`hikes.CreateHikeForm`
+
+    **Template**
+    
+    :template:`hikes/update_hike.html`
+    """
     if request.user.is_authenticated:
         selected_hike = get_object_or_404(Hike, slug=slug)
-        update_form = CreateHikeForm(data = request.POST or None, files=request.FILES or None, instance = selected_hike)
+        update_form = CreateHikeForm(
+            data = request.POST or None,
+            files=request.FILES or None,
+            instance = selected_hike
+            )
         if request.method == "POST":    
             if update_form.is_valid():
                 update_form.save()
@@ -87,27 +145,49 @@ def update_hike(request, slug):
     )
 
 
-# Delete a hike
 def delete_hike(request, slug):
+    """
+    Delete a hike.
+
+    **Context**
+
+    ``selected_hike``
+        An instance of :model:`hikes.Hike`
+    """
     if request.user.is_authenticated:
         selected_hike = get_object_or_404(Hike, slug=slug)
         if request.user == selected_hike.author:
             selected_hike.delete()
-            messages.add_message(request, messages.SUCCESS, f'Your hiking route has been deleted successfully!')
+            messages.add_message(request,
+            messages.SUCCESS,
+            f'Your hiking route has been deleted successfully!')
     return HttpResponseRedirect(reverse('hikes'))
 
 
-# Like a Hike or remove a Like
 def like_hike(request, slug):
+    """
+    Like or unlike a hike.
+
+    **Context**
+
+    ``hike``
+        An instance of :model:`hikes.Hike`
+    """
     if request.user.is_authenticated:
         hike = get_object_or_404(Hike, slug=slug)
-        user = request.user
+        # If the user is not the hike author allow to like/unlike the hike
         # https://stackoverflow.com/questions/51206549/django-create-or-delete-object
         if request.user != hike.author:
+            # Checked whether the user has already liked the post and
+            # if so, unlike the hike
             try:
-                Like.objects.get(user=user, hike=hike).delete()
+                Like.objects.get(user=request.user, hike=hike).delete()
+            # If the Like does not exist, create a like
             except Like.DoesNotExist:
-                Like.objects.create(user=user, hike=hike)
+                Like.objects.create(user=request.user, hike=hike)
         else:
-            messages.add_message(request, messages.ERROR, f'You cannot like your own route!')
+            messages.add_message(
+                request,
+                messages.ERROR,
+                f'You cannot like your own route!')
         return redirect('hike_info', hike.slug)

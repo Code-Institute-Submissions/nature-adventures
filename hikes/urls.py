@@ -1,5 +1,5 @@
-from . import views
 from django.urls import path
+from . import views
 
 urlpatterns = [
     path('<slug:slug>/', views.hike_info, name='hike_info'),
