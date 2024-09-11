@@ -140,6 +140,12 @@ body {
     justify-content: center;
 }
 
+/* 404 page */
+
+.img-404 {
+    width: 256px;
+}
+
 /* Screens larger than 768px */
 @media screen and (min-width: 768px) {
     .content-container {

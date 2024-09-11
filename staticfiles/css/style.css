@@ -17,13 +17,6 @@ body {
     padding-top: 30px;
 }
 
-/* Navbar */
-.auth-links {
-    display: flex;
-    gap: 10px;
-    margin-right: 50px;
-}
-
 /* Login */
 .login-container {
     background-color: #F8F9FA;
@@ -145,6 +138,12 @@ body {
     display: flex;
     align-items: right;
     justify-content: center;
+}
+
+/* 404 page */
+
+.img-404 {
+    width: 256px;
 }
 
 /* Screens larger than 768px */
