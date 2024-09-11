@@ -142,8 +142,20 @@ body {
 
 /* 404 page */
 
+.error-msg {
+    margin: 5vh auto 13vh;
+    padding: 10px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 280px;
+    border-radius: 2%;
+}
+
 .img-404 {
     width: 256px;
+    border-radius: 5%;
+    margin-top: 10px;
 }
 
 /* Screens larger than 768px */
@@ -154,6 +166,10 @@ body {
     
     .img-container {
         margin: 10px
+    }
+
+    .error-msg {
+        max-width: 400px;
     }
 }
 
