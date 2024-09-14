@@ -143,9 +143,14 @@ h6,
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
     }
 
-.logos > i {
+.logos>a {
+    color:#3c481b;
+}
+
+.logos i {
     font-size: 20px;
 }
 
