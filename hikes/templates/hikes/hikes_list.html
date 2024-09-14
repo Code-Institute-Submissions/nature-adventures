@@ -10,7 +10,7 @@
     <div class="row row-cols-1 row-cols-lg-3 g-4 hike-row">
         {% for hike in hikes_list %}
         <div class="col">
-            <div class="card hike-card">
+            <div class="card hike-card border border-5">
                 {% if "placeholder" in hike.route_image.url %}
                 <img src="{% static 'images/default_hike.jpg' %}" class="card-img-top card-img" alt="Default image of people hiking">
                 {% else %}
@@ -20,7 +20,7 @@
                     <h5 class="card-title"> {{ hike.hike_name }}</h5>
                     <p class="card-text">{{ hike.region }}</p>
                     <p class="card-text">{{ hike.distance }} miles </p>
-                    <a href="{% url 'hike_info' hike.slug %}" class="btn btn-warning">View the route</a>
+                    <a href="{% url 'hike_info' hike.slug %}" class="btn btn-secondary text-light">View the route</a>
                 </div>
             </div>
         </div>
@@ -46,7 +46,7 @@
             {% endif %}
             <!-- Current page -->
             <li class="page-item" aria-current="page">
-                <span class="page-link text-dark bg-warning">{{ page_obj.number }}</span>
+                <span class="page-link bg-secondary text-light">{{ page_obj.number }}</span>
             </li>
             <!-- Next page if not on the last page -->
             {% if page_obj.has_next %}
@@ -66,7 +66,7 @@
     {% endif %}
 
 <!-- Link to add new routes -->
-<div class="container bg-light add-hike">
+<div class="container bg-light border border-5 add-hike">
     <h6>Is your favourite hike missing?</h6>
     <p> Help your fellow hiking enthusiasts to discover the most amazing routes by adding your favourite hikes.</p>
     {% if user.is_authenticated %}

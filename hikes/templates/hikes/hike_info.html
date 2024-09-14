@@ -72,8 +72,8 @@
     {% endif %}
     <!-- Buttons to edit/delete the route and to return to hikes page -->
     <div class="modify-btns">
-        <!-- Check that the user is only able to update/delete their own route -->
          <a href="{% url 'hikes' %}" class="btn btn-success">Return to Hikes</a>
+        <!-- Check that the user is only able to update/delete their own route --> 
         {% if request.user == hike.author %}
         <a href="{% url 'update_hike' hike.slug %}" class="btn btn-warning">Update Route</a>
         <!-- Bootstrap button trigger modal -->
