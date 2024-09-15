@@ -138,7 +138,9 @@ def update_hike(request, slug):
         )
         if request.method == "POST":
             if update_form.is_valid():
-                update_form.save()
+                updated_hike = update_form.save(commit=False)
+                updated_hike.slug = slugify(updated_hike.hike_name)
+                updated_hike.save()
                 return redirect('hike_info', selected_hike.slug)
     return render(
         request,
