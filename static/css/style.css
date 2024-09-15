@@ -32,6 +32,11 @@ h6,
     padding-top: 30px;
 }
 
+.logo {
+    width: 30px;
+    padding: 0 10px 5px 0;
+}
+
 /* Login */
 .login-container {
     background-color: #F8F9FA;

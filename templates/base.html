@@ -12,7 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luonto - Nature Adventures</title>
+    <title>Nature Adventures</title>
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
@@ -27,14 +27,16 @@
     <!-- Bootstrap Navbar -->
     <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid mx-md-5">
-          <a class="navbar-brand" href="{% url 'hikes' %}">Luonto - Nature Adventures</a>
+          <a class="navbar-brand" href="{% url 'hikes' %}"><img src="{% static 'images/logo.png' %}" class="logo" alt="Drawing of a compass">Nature Adventures</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-link {% if request.path == hikes_url %} active" aria-current="page {% endif %}" href="{% url 'hikes' %}">Hikes</a>
+              {% if user.is_authenticated %}
               <a class="nav-link {% if request.path == new_hike_url %} active" aria-current="page {% endif %}" href="{% url 'new_hike' %}">Add a Hike</a>
+              {% endif %}
             </div>
             <div class="navbar-nav">
               {% if user.is_authenticated %} 
@@ -87,7 +89,7 @@
           aria-label="Visit our X page (opens in a new tab)"
           ><i class="fa-brands fa-square-twitter"></i></a>
           </span>
-        <span class="copyright">Copyright Luonto 2024</span>
+        <span class="copyright">Copyright Nature Adventures 2024</span>
      </footer>
 
 
