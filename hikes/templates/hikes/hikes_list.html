@@ -17,7 +17,8 @@
                 <img src="{{ hike.route_image.url }}" alt="{{ hike.hike_name }}" class="card-img-top card-img">
                 {% endif %}
                 <div class="card-body">
-                    <h5 class="card-title"> {{ hike.hike_name }}</h5>
+                    <div class="d-flex">
+                        <h5 class="card-title"> {{ hike.hike_name }}</h5><span class="like-count"><i class="fa-solid fa-thumbs-up"></i> {{ hike.hike_likes.all.count }} likes</span></div>
                     <p class="card-text">{{ hike.region }}</p>
                     <p class="card-text">{{ hike.distance }} miles </p>
                     <a href="{% url 'hike_info' hike.slug %}" class="btn btn-secondary text-light">View the route</a>

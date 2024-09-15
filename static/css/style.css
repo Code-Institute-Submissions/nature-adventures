@@ -118,6 +118,13 @@ h6,
     justify-content: center;
 }
 
+.like-count {
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    flex-grow: 1;
+    text-align: right;
+}
+
 .pagination a {
     color:#000
 }

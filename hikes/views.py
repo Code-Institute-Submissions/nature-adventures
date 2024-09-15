@@ -3,6 +3,7 @@ from django.views import generic
 from django.template.defaultfilters import slugify
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.db.models import Count
 from .models import Hike, Like
 from .forms import CreateHikeForm
 
@@ -15,7 +16,7 @@ class HikesList(generic.ListView):
     **Context**
 
     ``queryset``
-        All instances of :model:`hikes.Hike`
+        All instances of :model:`hikes.Hike` ordered by the number of likes
     ``context_object_name``
         User-friendly name of the object returned
     ``paginate_by``
@@ -25,7 +26,9 @@ class HikesList(generic.ListView):
 
     :template:`hikes/hikes_list.html`
     """
-    queryset = Hike.objects.all()
+    queryset = Hike.objects.annotate(
+        likes=Count('hike_likes')
+        ).order_by('-likes')
     template_name = "hikes/hikes_list.html"
     context_object_name = "hikes_list"
     paginate_by = 3
