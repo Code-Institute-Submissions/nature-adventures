@@ -28,7 +28,7 @@ class HikesList(generic.ListView):
     """
     queryset = Hike.objects.annotate(
         likes=Count('hike_likes')
-        ).order_by('-likes')
+    ).order_by('-likes')
     template_name = "hikes/hikes_list.html"
     context_object_name = "hikes_list"
     paginate_by = 3
@@ -107,6 +107,14 @@ def new_hike(request):
                     messages.SUCCESS,
                     'Your hiking route has been added successfully!')
                 return redirect('hike_info', added_hike.slug)
+            else:
+                messages.add_message(
+                    request,
+                    messages.ERROR,
+                    'There has been an error, please try again.'
+                )
+                return redirect('hikes_list')
+                
     return render(
         request,
         "hikes/create_hike.html",
@@ -142,6 +150,7 @@ def update_hike(request, slug):
                 updated_hike.slug = slugify(updated_hike.hike_name)
                 updated_hike.save()
                 return redirect('hike_info', selected_hike.slug)
+
     return render(
         request,
         "hikes/update_hike.html",
