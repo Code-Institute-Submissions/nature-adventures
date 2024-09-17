@@ -45,9 +45,9 @@
     <!-- Buttons to edit profile and return to the Hikes pages-->
     <div class="modify-btns">
         <!-- Check that the user is only able to update their own profile -->
-        <a href="{% url 'hikes' %}" class="btn btn-success">Return to Hikes</a>
+        <a href="{% url 'hikes' %}" class="btn green-btn">Return to Hikes</a>
         {% if request.user.id == profile.user.id %}    
-        <a href="{% url 'update_profile' %}" class="btn btn-warning">Update Profile</a>
+        <a href="{% url 'update_profile' %}" class="btn blue-btn">Update Profile</a>
         {% endif %}    
     </div>  
 </main>

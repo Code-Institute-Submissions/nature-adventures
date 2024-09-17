@@ -83,6 +83,40 @@ h6,
     color:black;
 }
 
+.blue-btn {
+    background-color: #293243;
+    color: #fff;
+}
+
+.blue-btn:hover {
+    background-color: #e5e9f3;
+    border: solid 1px #000;
+        font-weight: bold;
+}
+
+.green-btn {
+    background-color: #3e4720;
+    color: #fff;
+}
+
+.green-btn:hover {
+    background-color: #9fa297;
+    color: #000;
+    font-weight: bold;
+    border: solid 1px #000;
+}
+
+.red-btn {
+    background-color: #bb2d3b;
+    color: #fff;
+}
+
+.red-btn:hover {
+    background-color: #c5656f;
+    font-weight: bold;
+    border: solid 1px #000;
+}
+
 /* Profile page */
 
 .profile-content {
@@ -130,7 +164,12 @@ h6,
 
 .pagination a:hover {
     color: #000;
-    background-color:#e4e7d4;
+    background-color:#e5e9f3;
+}
+
+.pagination>li>span {
+    background-color: #293243;
+    color: #fff;
 }
 
 .add-hike {

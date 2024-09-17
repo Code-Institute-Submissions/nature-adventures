@@ -49,11 +49,11 @@
                             <div class="col-6 col-md-8 text-muted"><small>You have liked this hike</small></div>
                         </div>
                         <div class="row">
-                            <a href="{% url 'like_hike' hike.slug %}" id="like-btn" class="btn btn-secondary">Unlike <i class="fa-solid fa-thumbs-down"></i></a>
+                            <a href="{% url 'like_hike' hike.slug %}" id="like-btn" class="btn blue-btn">Unlike <i class="fa-solid fa-thumbs-down"></i></a>
                         </div>
                     {% else %}
                         <div class="row">
-                            <a href="{% url 'like_hike' hike.slug %}" id="like-btn" class="btn btn-success">Like <i class="fa-solid fa-thumbs-up"></i></a>
+                            <a href="{% url 'like_hike' hike.slug %}" id="like-btn" class="btn blue-btn">Like <i class="fa-solid fa-thumbs-up"></i></a>
                         </div>
                     {% endif %}
                 {% endif %}
@@ -72,12 +72,12 @@
     {% endif %}
     <!-- Buttons to edit/delete the route and to return to hikes page -->
     <div class="modify-btns">
-         <a href="{% url 'hikes' %}" class="btn btn-success">Return to Hikes</a>
+         <a href="{% url 'hikes' %}" class="btn green-btn">Return to Hikes</a>
         <!-- Check that the user is only able to update/delete their own route --> 
         {% if request.user == hike.author %}
-        <a href="{% url 'update_hike' hike.slug %}" class="btn btn-secondary">Update Route</a>
+        <a href="{% url 'update_hike' hike.slug %}" class="btn blue-btn">Update Route</a>
         <!-- Bootstrap button trigger modal -->
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteRouteModal">Delete Route</button>
+        <button type="button" class="btn red-btn" data-bs-toggle="modal" data-bs-target="#deleteRouteModal">Delete Route</button>
         {% endif %}
 
     </div>
@@ -99,8 +99,8 @@
                 If you still want to go ahead and delete this route, click Delete. This action cannot be undone!
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <a id="deleteConfirm" href="{% url 'delete_hike' hike.slug %}" class="btn btn-danger">Delete</a>
+                    <button type="button" class="btn blue-btn" data-bs-dismiss="modal">Close</button>
+                    <a id="deleteConfirm" href="{% url 'delete_hike' hike.slug %}" class="btn red-btn">Delete</a>
                 </div>
             </div>
         </div>
