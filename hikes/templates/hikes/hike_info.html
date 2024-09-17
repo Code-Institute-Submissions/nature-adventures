@@ -38,8 +38,8 @@
                 <div class="row">
                     <div class="col-6 col-md-4 fw-bold">Likes:</div>
                     <!-- Display the total number of likes and use Bootstrap popover to display who has liked the hike -->
-                    <a type="button" class="col-6 col-md-8" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" 
-                        data-bs-content="{% for user in liked_hike %}{{ user }}, {% endfor %}">{{likes}} likes</a>
+                    <button type="button" class="btn btn-link likes-popover" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" 
+                    data-bs-content="{% for user in liked_hike %}{{ user }}, {% endfor %}">{{likes}} likes</button>
                 </div>
                 <!-- Allow users who are not the authors of the hike to like the hike -->
                 {% if request.user != hike.author %}

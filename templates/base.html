@@ -15,8 +15,7 @@
     <!-- Description -->
     <meta
       name="description"
-      content="Nature Adventures. A friendly community for people who love hiking and getting outdoors in the UK."
-      />
+      content="Nature Adventures. A friendly community for people who love hiking and getting outdoors in the UK.">
     <!-- Keywords -->
     <meta
       name="keywords"
@@ -42,9 +41,9 @@
           </button>
           <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link {% if request.path == hikes_url %} active" aria-current="page {% endif %}" href="{% url 'hikes' %}">Hikes</a>
+              <a class="nav-link {% if request.path == hikes_url %} active" aria-current="page{% endif %}" href="{% url 'hikes' %}">Hikes</a>
               {% if user.is_authenticated %}
-              <a class="nav-link {% if request.path == new_hike_url %} active" aria-current="page {% endif %}" href="{% url 'new_hike' %}">Add a Hike</a>
+              <a class="nav-link {% if request.path == new_hike_url %} active" aria-current="page{% endif %}" href="{% url 'new_hike' %}">Add a Hike</a>
               {% endif %}
             </div>
             <div class="navbar-nav">

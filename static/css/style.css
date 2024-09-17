@@ -83,6 +83,13 @@ h6,
     color:black;
 }
 
+.likes-popover {
+    width: 100px;
+    padding: 0 0 0 12px;
+    text-align: left;
+    border: none
+}
+
 .blue-btn {
     background-color: #293243;
     color: #fff;
@@ -206,7 +213,7 @@ h6,
 
 .copyright {
     display: flex;
-    align-items: right;
+    align-items: start;
     justify-content: center;
 }
 

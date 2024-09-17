@@ -6,12 +6,12 @@
 
 <div class="container bg-light content-container">
     <h1 class="p-3"> Update Route: {{selected_hike.hike_name}} </h1>
-    <form method="POST" action="" enctype="multipart/form-data">
+    <form method="POST" action="{% url 'update_hike' selected_hike.slug %}" enctype="multipart/form-data">
         {% csrf_token %}
         {{ update_form | crispy }}
         <br>
         <div class="modify-btns"><button type="submit" class="btn blue-btn">Save</button></div>
         
     </form>
-
+</div>
 {% endblock %}
