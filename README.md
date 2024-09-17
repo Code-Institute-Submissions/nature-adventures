@@ -59,13 +59,94 @@ The main font used is Raleway with sans serif as the backup font. The font used 
 ### General
 
 * The website was designed following mobile first and responsive design principles.
-* The navigation bar allows the user to navigate the site easily.
+* The navigation bar is consistent across all the pages allowing the user to navigate the site easily. The navigation bar contains Nature Adventure's logo and links to all the sections. 
+* The footer also is the same on all the pages and allows users to easily access Nature Adventure's social media sites. 
 
+### Hikes
+
+* The Home page displays a paginated list of all the hikes that have been added to the site.
+* The hikes are displayed in the order of total likes received. The hike that has received the most likes is displayed first. 
+* All the users can see basic information about the hikes including the name, distance, region and the total number of likes the hike has received.
+* Non-registred users are encouraged to login or sign up to be able to use other functionalities.
+* Registered users are displayed a link to their own profile and the page to add more hikes.
+
+### Hike detail
+
+* If non-registered user attempts to access the hike details, they are advised to login or sign up. 
+* Registered users are able to view all the hike details including name, distance, region, author, date created, number of likes and which users have liked the hike.
+* The user who created the hike also has "Edit" and "Delete" buttons to allow them to manage their hikes.
+* All registered users other than the author of the hike are able to like/unlike the hike. It is displayed above the hike button if the user has already liked the hike. 
+* A list of all users who have liked the hike is displayed as a Bootstrap popover.
+
+### Edit hike
+
+* Edit hike page allows the author of the hike to make edits to the information that they has added.
+* The current information about the hike has been prefilled for the ease of use. 
+
+### Delete hike
+
+* Delete hike button opens a delete hike modal that confirms that the user really wants to delete the hike. 
+
+### Create a hike
+
+* Create hike form allows registered users to share their knowledge by add new hiking routes.
+
+### Profile page
+
+* Registered users can view their own profiles as well as the profiles of other registered users.
+* In addition to username, region and description, the hikes that the user has created and liked are also displayed.
+
+### Edit profile
+
+* Users can edit their own profile to ensure that their information is up-to-date. 
+
+### Authentication pages
+
+* The registeration page allows new users to sign up and create a profile for the site.
+* The login page allows registered users to sign in using their login details.
+* The logout page allows registered users to sign out. 
+
+## Technologies Used
+
+### Languages used
+
+* [HTML5](https://en.wikipedia.org/wiki/HTML)
+* [CSS3](https://en.wikipedia.org/wiki/CSS)
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+* [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+
+### Libraries and Frameworks used
+
+* [Django](https://www.djangoproject.com/) web framework was used to develop the site.
+
+* [Django Template](https://jinja.palletsprojects.com) was used as a templating language for Django.
+
+* [Google Fonts](https://fonts.google.com) was used to import the fonts used.
+
+* [Font Awesome](https://fontawesome.com) was used to add icons such as social media icons and the "like" icon.
+   
+* [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) was used throughout the website to improve responsiveness and styling.
+
+### Packages / Dependecies installed
+
+* [Django Allauth](https://django-allauth.readthedocs.io/en/latest/) was used for user authentication, registration, and account management.
+
+* [Django Crispy Form](https://django-crispy-forms.readthedocs.io/en/latest/) was used to control the rendering of the forms. 
+ 
+* [Gunicorn](https://gunicorn.org/) was used as the Python Web Server Gateway Interface (WSGI) HTTP server. 
+
+* [Cloudinary](https://cloudinary.com/) was used as the image management solution.
+
+* [Whitenoise](https://pypi.org/project/whitenoise/) was used to serve static files.
+
+### Database Management
+
+* [Postgres](https://www.postgresql.org/) object-relational database system was used in production.
 
 
 https://learndjango.com/tutorials/django-slug-tutorial
 
-###Credits: 
+## Credits: 
 
 - default hiking image: Photo by Guduru Ajay bhargav: https://www.pexels.com/photo/people-walking-on-road-near-trees-at-daytime-photo-1076081/
 - default hiking image 2: Photo by Eric Sanman: https://www.pexels.com/photo/group-of-person-walking-in-mountain-1365425/
@@ -85,6 +166,8 @@ https://learndjango.com/tutorials/django-slug-tutorial
 -Favicon: <a href="https://www.freepik.com/icon/compass_10507707#fromView=search&page=2&position=33&uuid=8f47f99c-0454-4226-bf39-8848ce14fd41">Icon by Smashicons</a>
 
 <a href="https://www.freepik.com/free-photo/crop-hand-with-compass-nature_2415325.htm#fromView=search&page=1&position=47&uuid=66f2ab65-d34d-4178-990c-bc72d2c66713">Image by freepik</a>
+
+<a href="https://www.freepik.com/free-vector/flat-design-sport-silhouette_65686980.htm#fromView=search&page=1&position=9&uuid=9fad7fc0-9ade-4f98-8fae-b41f0a5853fd">Image by freepik</a>
 
 ###Credits:
 
