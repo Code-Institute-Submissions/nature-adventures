@@ -8,7 +8,7 @@
     <div class="profile-content">
         <div class="img-container">
             {% if "placeholder" in profile.profile_pic.url %}
-            <img src="{% static 'images/nobody.jpg' %}" class="profile-image" alt="Placeholder profile image">
+            <img src="{% static 'images/default_profile.webp' %}" class="profile-image" alt="Placeholder profile image">
             {% else %}
             {% load cloudinary %}
             {% cloudinary profile.profile_pic format="png" width=200 height=200 radius=100 crop="fill" gravity="auto" %}
