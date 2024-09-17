@@ -15,7 +15,7 @@
                 <img src="{% static 'images/default_hike.webp' %}" class="card-img-top card-img" alt="Default image of people hiking">
                 {% else %}
                 {% load cloudinary %}
-                {% cloudinary hike.route_image format="png" aspect_ratio="4:3" crop="fill" gravity="auto" alt="Image of the hike" class="card-img-top card-img" %}
+                {% cloudinary hike.route_image fetch_format="auto" aspect_ratio="4:3" crop="fill" gravity="auto" alt="Image of the hike" class="card-img-top card-img" %}
                 {% endif %}
                 <div class="card-body">
                     <div class="d-flex">

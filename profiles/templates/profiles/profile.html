@@ -11,7 +11,7 @@
             <img src="{% static 'images/default_profile.webp' %}" class="profile-image" alt="Placeholder profile image">
             {% else %}
             {% load cloudinary %}
-            {% cloudinary profile.profile_pic format="png" width=200 height=200 radius=100 crop="fill" gravity="auto" %}
+            {% cloudinary profile.profile_pic fetch_format="auto" width=200 height=200 radius=100 crop="fill" gravity="auto" alt="Profile image" %}
             {% endif %}
         </div>
         <div class="profile-info">

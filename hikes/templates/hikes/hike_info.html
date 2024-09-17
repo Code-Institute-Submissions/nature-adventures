@@ -13,7 +13,7 @@
                 <img src="{% static 'images/default_hike.webp' %}" class="img-fluid rounded hike-image" alt="Placeholder hike image">
                 {% else %}
                 {% load cloudinary %}
-                {% cloudinary hike.route_image format="png" aspect_ratio="4:3" crop="fill" gravity="auto" alt="Image of the hike" class="card-img-top rounded" %}
+                {% cloudinary hike.route_image fetch_format="auto" aspect_ratio="4:3" crop="fill" gravity="auto" alt="Image of the hike" class="card-img-top rounded" %}
                 {% endif %}
             </div>
             <div class="col container hike-info m-2 align-self-center">
