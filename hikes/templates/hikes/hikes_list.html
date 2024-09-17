@@ -14,7 +14,8 @@
                 {% if "placeholder" in hike.route_image.url %}
                 <img src="{% static 'images/default_hike.webp' %}" class="card-img-top card-img" alt="Default image of people hiking">
                 {% else %}
-                <img src="{{ hike.route_image.url }}" alt="{{ hike.hike_name }}" class="card-img-top card-img">
+                {% load cloudinary %}
+                {% cloudinary hike.route_image format="png" aspect_ratio="4:3" crop="fill" gravity="auto" alt="Image of the hike" class="card-img-top card-img" %}
                 {% endif %}
                 <div class="card-body">
                     <div class="d-flex">

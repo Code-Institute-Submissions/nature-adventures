@@ -11,8 +11,9 @@
             <div class="col-12 col-md-6 mb-2">
                 {% if "placehold" in hike.route_image.url %}
                 <img src="{% static 'images/default_hike.webp' %}" class="img-fluid rounded hike-image" alt="Placeholder hike image">
-                {% else %}              
-                <img src="{{ hike.route_image.url }}" alt="{{ hike.hike_name }}" class="card-img-top rounded">
+                {% else %}
+                {% load cloudinary %}
+                {% cloudinary hike.route_image format="png" aspect_ratio="4:3" crop="fill" gravity="auto" alt="Image of the hike" class="card-img-top rounded" %}
                 {% endif %}
             </div>
             <div class="col container hike-info m-2 align-self-center">
