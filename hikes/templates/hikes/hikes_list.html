@@ -10,7 +10,7 @@
     <div class="row row-cols-1 row-cols-lg-3 g-4 hike-row">
         {% for hike in hikes_list %}
         <div class="col">
-            <div class="card hike-card border border-5">
+            <div class="card hike-card border border-white border-5">
                 {% if "placeholder" in hike.route_image.url %}
                 <img src="{% static 'images/default_hike.jpg' %}" class="card-img-top card-img" alt="Default image of people hiking">
                 {% else %}
@@ -67,7 +67,7 @@
     {% endif %}
 
 <!-- Link to add new routes -->
-<div class="container bg-light border border-5 add-hike">
+<div class="container bg-light add-hike">
     <h6>Is your favourite hike missing?</h6>
     <p> Help your fellow hiking enthusiasts to discover the most amazing routes by adding your favourite hikes.</p>
     {% if user.is_authenticated %}
