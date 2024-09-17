@@ -188,6 +188,70 @@ In addition to manual checks, responsiveness was tested further using Chrome Dev
 
 #### Common Elements Testing
 
+* **Navigation bar**
+
+    | Feature               | Outcome                                                                                               | Pass/Fail |
+    | ---                   | ---                                                                                                   | ---       |
+    | Main logo             | Redirects to the main page/hikes list.                                                                | Pass      |
+    | Hikes link            | Redirects to the main page/hikes list. When the page is active, the font colour is slightly darker.   | Pass      |
+    | Add a Hike link       | Redirects to the new hike page. Only visible when logged in.                                          | Pass      |
+    | My Profile link       | Only displayed when logged in. The correct user is shown. Redirects to the user's profiles.           | Pass      |
+    | Logout                | Only displayed when logged in. Redirects to the logout page.                                          | Pass      |
+    | Hamburger menu        | Navigation menu works as expected on smaller devices.                                                 | Pass      |
+
+* Footer
+
+| Feature               | Outcome                                                                                               | Pass/Fail |
+| ---                   | ---                                                                                                   | ---       |
+| Facebook icon         | Opens Facebook on a separate tab.                                                                     | Pass      |
+| Instagram icon        | Opens Instagram on a separate tab.                                                                    | Pass      |
+| X icon                | Opens X on a separate tab.                                                                            | Pass      |
+
+* Hikes list
+
+| Feature               |   Outcome                                                                                             | Pass/Fail |
+| ---                   |  ---                                                                                                  | ---       |
+| List                  | A list is displayed and ordered based on the number of likes.                                         | Pass      |
+| View hike button      | Works as expected. Hover effect works as expected                                                     | Pass      |
+| Pagination            | Works as expected. Previous/next button is disabled appropriately.                                    | Pass      |
+
+* Hike detail
+
+| Feature               |   Outcome                                                                                                     | Pass/Fail |
+| ---                   |  ---                                                                                                          | ---       |
+| Login                 | If not logged in, request to login or register is displayed                                                   | Pass      |
+| Hike details          | Displayed as expected                                                                                         | Pass      |
+| Hike image            | Displayed as expected. Aspect ratio 4:3.                                                                      | Pass      |
+| Hike author           | Displayed correctly. Clicking the name redirects to their profile.                                            | Pass      |
+| Date added            | Displayed correctly                                                                                           | Pass      |
+| Likes                 | Number of likes displayed. If there are likes, clicking opens a popover that shows who has liked the hike.    | Pass      |
+| Like button           | The word like and correct icon displayed. Hover effect works. When clicked the button changes to 'unlike'.    | Pass      |
+| Return button         | Redirects to Hikes list page.                                                                                 | Pass      |
+| Update Hike button    | Displayed only to the author. Redirects to Update Hike page. Hover effect works correctly.                    | Pass      |
+| Delete Hike button    | Displayed only to the author. Opens a modal window.                                                           | Pass      |
+
+* Update Hike
+
+| Feature               |   Outcome                                                                                                     | Pass/Fail |
+| ---                   |  ---                                                                                                          | ---       |
+| Name                  | Updates correctly. Slug is updated to reflect the new name. Two hikes cannot be given the same name.          | Pass      |
+| Region                | Dropdown works correctly. A value must be selected.                                                           | Pass      |
+| Distance              | Works correctly. An integer between 1-200 must be selected.                                                   | Pass      |
+| Description           | Works as expected. Required field.                                                                            | Pass      |
+| Image                 | Uploads correctly. Not a required field.                                                                      | Pass      |
+
+* Delete Hike
+
+| Feature               |   Outcome                                                                                                     | Pass/Fail |
+| ---                   |  ---                                                                                                          | ---       |
+| Modal                 | Confirms the name of the hike being deleted.                                                                  | Pass      |
+| Close button          | Hover works as expected. Closes the modal if clicked.                                                         | Pass      |
+| Delete                | Hover works as expected. Deletes the hike if clicked. Redirects to hikes list.                                | Pass      |
+
+* Create a Hike
+
+| Feature               |   Outcome                                                                                                     | Pass/Fail |
+| ---                   |  ---                                                                                                          | ---       |
 
 ### Unit testing
 
