@@ -106,6 +106,91 @@ The main font used is Raleway with sans serif as the backup font. The font used 
 * The login page allows registered users to sign in using their login details.
 * The logout page allows registered users to sign out. 
 
+## Testing
+
+### Testing user stories
+
+### Code validation
+
+* The [W3C Markup Validator](https://validator.w3.org/), [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) and [JSHint](https://jshint.com/) were used to validate the HTML, CSS and JS code to ensure that the project meets the current Web Standards and is free from any unintended syntax errors and mistakes that could cause issues with accessibility and usability.
+
+* W3C Markup Validator:
+    * highlighted that when creating a Bootstrap popover to display the people who had liked the hike, a link element had been used instead of a button element. The link element was replaced with a button element. 
+    * highlighted that several closing div elements were missing. There were added to fix the errors.
+    * highlighted that the form elements had empty "action" attributes. Links to the appropriate URLs were added to fix these errors.
+    * highlighted that several trailing slashes. These were ignores as they have added by Cloudinary.
+
+    | Page          | Feedback                                                                      |
+    | ---           | ---                                                                           |
+    | Hikes list    | ![hikes list](assets/readme_files/validation/hikes_list_validation.png)       |
+    | Hike info     | ![hike detail](assets/readme_files/validation/hike_info_validation.png)       |
+    | Create a hike | ![create a hike](assets/readme_files/validation/create_hike_validation.png)   |
+    | Edit a hike   | ![edit a hike](assets/readme_files/validation/edit_hike_validation.png)       |
+    | Profile       | ![profile](assets/readme_files/validation/profile_validation.png)             |
+    | Edit profile  | ![edit profile](assets/readme_files/validation/update_profile_validation.png) |
+    | 404           | ![404 page](assets/readme_files/validation/404_validation.png)                |
+
+* W3C CSS Validator:
+    * highlighted that "right" is not a value of the property "align-items". This was fixed by replacing "right" with the value "start".
+
+    ![CSS validation](assets/readme_files/validation/css_validation.png)
+
+* JSHint:
+    * highlighted that some semicolons were missing. These were added.
+    * highlighted that "popover" and "bootstrap" are not used. These were ignore as they are part of the Bootstrap popover code.
+
+    ![JS validation](assets/readme_files/validation/js_validation.png)
+
+* [autopep8](https://pypi.org/project/autopep8/), [Flake8](https://flake8.pycqa.org/en/latest/) and [CI Python Linter](https://pep8ci.herokuapp.com/#) were used to validate the Python code for PEP8 requirements.
+
+### Performance and Accessibility
+
+Chrome DevTool Lighthouse was used to assess the project's performance and accessibility. The reports confirmed that the page performs well and is accessible. The recommadations relating to Best Practice noted that because of Cloudinary the site is using third party cookies.
+
+| Page tested   | Report                                                                        |
+| ---           | ---                                                                           |
+| Hikes list    | ![hikes list](assets/readme_files/lighthouse/hike_list_lighthouse.png)        |
+| Hike info     | ![hike detail](assets/readme_files/lighthouse/hike_info_lighthouse.png)       |
+| Create a hike | ![create a hike](assets/readme_files/lighthouse/create_hike_lighthouse.png)   |
+| Edit a hike   | ![edit a hike](assets/readme_files/lighthouse/update_hike_lighthouse.png)     |
+| Profile       | ![profile](assets/readme_files/lighthouse/profile_lighthouse.png)             |
+| Edit profile  | ![edit profile](assets/readme_files/lighthouse/update_profile_lighthouse.png) |
+| Register      | ![register](assets/readme_files/lighthouse/register_lighthouse.png)           |
+| Login         | ![login](assets/readme_files/lighthouse/login_lighthouse.png)                 |
+| Logout        | ![logout](assets/readme_files/lighthouse/logout_lighthouse.png)               |
+
+
+### Responsiveness
+
+In addition to manual checks, responsiveness was tested further using Chrome DevTools and Responsive Design Checker.
+
+### Manual testing
+
+#### Browser compatibility
+
+| Browser          | Outcome                                                                                                                                                          | Pass/Fail |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| Google Chrome    | No appearance, responsiveness nor functionality issues.                                                                                                          | Pass      |
+| Mozilla Firefox  | The Game Mode label was displayed over two lines. <br>The label length was increased by 5px to resolve this issue.<br>No responsiveness nor functionality issues | Pass      |
+| Microsoft Edge   | No appearance, responsiveness nor functionality issues.                                                                                                          | Pass      |
+| Samsung Internet | No appearance, responsiveness nor functionality issues.                                                                                                          | Pass      |
+
+#### Device compatibility
+
+| Device                 | Outcome                                                 | Pass/Fail |
+| ---------------------- | ------------------------------------------------------- | --------- |
+| Sony Xperia 10 III     | No appearance, responsiveness nor functionality issues. | Pass      |
+| Samsung Galaxy A55     | No appearance, responsiveness nor functionality issues. | Pass      |
+| Lenovo Yoga s730       | No appearance, responsiveness nor functionality issues. | Pass      |
+| Sony VAIO 15"          | No appearance, responsiveness nor functionality issues. | Pass      |
+| Dell P2419H 24" screen | No appearance, responsiveness nor functionality issues. | Pass      |
+| Samsung Galaxy Tab S4  | No appearance, responsiveness nor functionality issues. | Pass      |
+
+#### Common Elements Testing
+
+
+### Unit testing
+
 ## Technologies Used
 
 ### Languages used
