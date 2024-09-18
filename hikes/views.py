@@ -149,8 +149,17 @@ def update_hike(request, slug):
                 updated_hike = update_form.save(commit=False)
                 updated_hike.slug = slugify(updated_hike.hike_name)
                 updated_hike.save()
+                messages.add_message(
+                request,
+                messages.SUCCESS,
+                'Your hiking route has been updated successfully!')
                 return redirect('hike_info', selected_hike.slug)
-
+            else:
+                messages.add_message(
+                    request,
+                    messages.SUCCESS,
+                    'Error updating the hike. Please try again'
+                )
     return render(
         request,
         "hikes/update_hike.html",
@@ -176,6 +185,11 @@ def delete_hike(request, slug):
                 request,
                 messages.SUCCESS,
                 'Your hiking route has been deleted successfully!')
+        else:
+            messages.add_message(
+            request,
+            messages.ERROR,
+            'Error has occured. Please try again.')
     return HttpResponseRedirect(reverse('hikes'))
 
 
