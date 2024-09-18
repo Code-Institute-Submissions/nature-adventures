@@ -4,6 +4,7 @@
 
 {% block content %}
 
+{% if request.user == selected_hike.author %}
 <div class="container bg-light content-container">
     <h1 class="p-3"> Update Route: {{selected_hike.hike_name}} </h1>
     <form method="POST" action="{% url 'update_hike' selected_hike.slug %}" enctype="multipart/form-data">
@@ -11,7 +12,16 @@
         {{ update_form | crispy }}
         <br>
         <div class="modify-btns"><button type="submit" class="btn blue-btn">Save</button></div>
-        
     </form>
 </div>
+{% else %}
+<div class="alert alert-danger d-flex align-items-center" role="alert">
+    <i class="fa-solid fa-triangle-exclamation mx-5"></i>
+    <div>
+      You cannot update this! You can only update hikes that you have created. <br>
+      Return to <a href="{% url 'hikes' %}">Hikes</a>
+    </div>
+  </div>
+{% endif %}
+
 {% endblock %}

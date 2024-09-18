@@ -76,13 +76,11 @@
          <a href="{% url 'hikes' %}" class="btn green-btn">Return to Hikes</a>
         <!-- Check that the user is only able to update/delete their own route --> 
         {% if request.user == hike.author %}
-        <a href="{% url 'update_hike' hike.slug %}" class="btn blue-btn">Update Route</a>
-        <!-- Bootstrap button trigger modal -->
-        <button type="button" class="btn red-btn" data-bs-toggle="modal" data-bs-target="#deleteRouteModal">Delete Route</button>
+        <a href="{% url 'update_hike' hike.slug %}" class="btn blue-btn">Update Hike</a>
+        <!-- Bootstrap button to trigger modal -->
+        <button type="button" class="btn red-btn" data-bs-toggle="modal" data-bs-target="#deleteRouteModal">Delete Hike</button>
         {% endif %}
-
     </div>
-    
 </main>
 
 <!-- Bootstrap Modal -->
