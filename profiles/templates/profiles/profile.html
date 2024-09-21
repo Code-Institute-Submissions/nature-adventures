@@ -19,32 +19,39 @@
             <br>
             <div> <strong>About me:</strong> <br> {{ profile.about }} </div>
             <br>
-            <!-- Links to the hikes that the user has added -->
-            <div><strong>My routes:</strong> 
-                {% if user_hikes %} 
-                    {% for hike in user_hikes %} <br> 
-                    <a href="{% url 'hike_info' hike.slug %}">{{ hike.hike_name }}</a> 
-                    {% endfor %}
-                {% else %}
-                No hikes added...yet!
-                {% endif %}
-            </div>
-            <br>
-            <!-- Links to the hikes that the user has liked -->
-            <div><strong>Hikes I like:</strong>
-                {% if user_likes %} 
-                    {% for like in user_likes %} <br> 
-                    <a href="{% url 'hike_info' like|slugify %}">{{ like }}</a> 
-                    {% endfor %}
-                {% else %}
-                No hikes liked...yet!
-                {% endif %}
-            </div>
+            <container class="overflow-hidden">
+                <div class="row gy-4">
+                    <!-- Links to the hikes that the user has added -->
+                    <div class="col-12 col-lg-6"> 
+                        <div><strong>My routes:</strong> 
+                            {% if user_hikes %} 
+                                {% for hike in user_hikes %} <br> 
+                                <a href="{% url 'hike_info' hike.slug %}">{{ hike.hike_name }}</a> 
+                                {% endfor %}
+                            {% else %}
+                            No hikes added...yet!
+                            {% endif %}
+                        </div>
+                    </div>
+                    <!-- Links to the hikes that the user has liked -->
+                    <div class="col-12 col-lg-6"> 
+                        <div><strong>Hikes I like:</strong>
+                            {% if user_likes %} 
+                                {% for like in user_likes %} <br> 
+                                <a href="{% url 'hike_info' like|slugify %}">{{ like }}</a> 
+                                {% endfor %}
+                            {% else %}
+                            No hikes liked...yet!
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+        </container>
         </div>
     </div>
     <!-- Buttons to edit profile and return to the Hikes pages-->
     <div class="modify-btns">
-        <a href="{% url 'hikes' %}" class="btn green-btn">Return to Hikes</a>
+        <a href="{% url 'hikes' %}" class="btn green-btn">Go to Hikes</a>
         <!-- Check that the user is only able to update their own profile -->
         {% if request.user.id == profile.user.id %}
         <a href="{% url 'update_profile' %}" class="btn blue-btn">Update Profile</a>
