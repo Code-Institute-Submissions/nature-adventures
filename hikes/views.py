@@ -47,6 +47,8 @@ def hike_info(request, slug):
     A count of all likes the hike has received
     ``liked_hike``
     A list of users who have liked the hike
+    ``previous_url``
+    Previous/referring URL
 
     **Template**
 
@@ -67,13 +69,16 @@ def hike_info(request, slug):
             "user__username",
             flat=True)
     )
+    # Get the url of the previous page the user was on
+    previous_url = request.META.get('HTTP_REFERER')
 
     return render(
         request,
         "hikes/hike_info.html",
         {"hike": hike,
          "likes": likes,
-         "liked_hike": liked_hike, },
+         "liked_hike": liked_hike,
+         "previous_url": previous_url,},
     )
 
 
@@ -197,17 +202,13 @@ def like_hike(request, slug):
     """
     Like or unlike a hike.
 
-    **Context**
-
-    ``hike``
-        An instance of :model:`hikes.Hike`
     """
     if request.user.is_authenticated:
         hike = get_object_or_404(Hike, slug=slug)
         # If the user is not the hike author allow to like/unlike the hike
         # https://stackoverflow.com/questions/51206549/django-create-or-delete-object
         if request.user != hike.author:
-            # Checked whether the user has already liked the post and
+            # Check whether the user has already liked the post and
             # if so, unlike the hike
             try:
                 Like.objects.get(user=request.user, hike=hike).delete()

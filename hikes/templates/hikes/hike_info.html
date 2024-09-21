@@ -73,7 +73,13 @@
     {% endif %}
     <!-- Buttons to edit/delete the route and to return to hikes page -->
     <div class="modify-btns">
-         <a href="{% url 'hikes' %}" class="btn green-btn">Return to Hikes</a>
+        <!-- Redirect the user back to the page that were on if they had been browsing the paginated list of hikes prior to viewing the hike -->
+        {% if '?page=' in previous_url %}
+        <a href="{{ previous_url }}" class="btn green-btn">Return to Hikes</a>
+        <!-- Otherwise, redirect the user to the first page of the hike list  -->
+        {% else %}
+        <a href="{% url 'hikes' %}" class="btn green-btn">Go to Hikes</a>
+        {% endif %}
         <!-- Check that the user is only able to update/delete their own route --> 
         {% if request.user == hike.author %}
         <a href="{% url 'update_hike' hike.slug %}" class="btn blue-btn">Update Hike</a>
