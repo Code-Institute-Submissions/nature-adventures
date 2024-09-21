@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
-{% load cloudinary %}
 
 {% block content %}
 
+{% if request.user == profile_form.instance.user %}
 <div class="container bg-light content-container">
-    <h1 class="p-3"> Update Profile: </h1>
+    <h1 class="p-3"> Update Profile: {{ request.user }} </h1>
     <form method="POST" action="{% url 'update_profile' %}" enctype="multipart/form-data">
         {% csrf_token %}
         {{ profile_form | crispy }}
@@ -14,7 +14,16 @@
         <div class="modify-btns">
             <button type="submit" class="btn blue-btn">Save</button>
         </div>
-        
     </form>
 </div>
+{% else %}
+<div class="alert alert-danger d-flex align-items-center" role="alert">
+    <i class="fa-solid fa-triangle-exclamation mx-5"></i>
+    <div>
+      You cannot update this! You can only update your own profile. <br>
+      Return to <a href="{% url 'profile' request.user %}">your profile</a>
+    </div>
+  </div>
+{% endif %}
+
 {% endblock %}

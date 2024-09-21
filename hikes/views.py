@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.contrib.auth.decorators import login_required
 from django.views import generic
 from django.template.defaultfilters import slugify
 from django.contrib import messages
@@ -121,7 +122,7 @@ def new_hike(request):
         {"hike_form": hike_form, }
     )
 
-
+@login_required
 def update_hike(request, slug):
     """
     Display :form:`hikes.CreateHikeForm` for edit.
@@ -137,29 +138,28 @@ def update_hike(request, slug):
 
     :template:`hikes/update_hike.html`
     """
-    if request.user.is_authenticated:
-        selected_hike = get_object_or_404(Hike, slug=slug)
-        update_form = CreateHikeForm(
-            data=request.POST or None,
-            files=request.FILES or None,
-            instance=selected_hike
-        )
-        if request.method == "POST":
-            if update_form.is_valid():
-                updated_hike = update_form.save(commit=False)
-                updated_hike.slug = slugify(updated_hike.hike_name)
-                updated_hike.save()
-                messages.add_message(
+    selected_hike = get_object_or_404(Hike, slug=slug)
+    update_form = CreateHikeForm(
+        data=request.POST or None,
+        files=request.FILES or None,
+        instance=selected_hike
+    )
+    if request.method == "POST":
+        if update_form.is_valid():
+            updated_hike = update_form.save(commit=False)
+            updated_hike.slug = slugify(updated_hike.hike_name)
+            updated_hike.save()
+            messages.add_message(
+            request,
+            messages.SUCCESS,
+            'Your hiking route has been updated successfully!')
+            return redirect('hike_info', selected_hike.slug)
+        else:
+            messages.add_message(
                 request,
                 messages.SUCCESS,
-                'Your hiking route has been updated successfully!')
-                return redirect('hike_info', selected_hike.slug)
-            else:
-                messages.add_message(
-                    request,
-                    messages.SUCCESS,
-                    'Error updating the hike. Please try again'
-                )
+                'Error updating the hike. Please try again'
+            )
     return render(
         request,
         "hikes/update_hike.html",
