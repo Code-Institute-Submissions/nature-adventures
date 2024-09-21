@@ -17,12 +17,22 @@
                 {% load cloudinary %}
                 {% cloudinary hike.route_image fetch_format="auto" aspect_ratio="4:3" crop="fill" gravity="auto" alt="Image of the hike" class="card-img-top card-img" %}
                 {% endif %}
+                <!-- Display likes on top on the hike image -->
+                <div class="card-img-overlay">
+                    <div class="d-flex justify-content-end"> 
+                        <div class="bg-light rounded p-2">
+                            <i class="fa-solid fa-thumbs-up"></i>
+                            <span class="sr-only">likes</span>
+                            <span> {{ hike.hike_likes.all.count }}</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="card-body">
-                    <div class="d-flex">
-                        <h5 class="card-title"> {{ hike.hike_name }}</h5><span class="like-count"><i class="fa-solid fa-thumbs-up"></i> {{ hike.hike_likes.all.count }}</span></div>
+                    <h5 class="card-title"> {{ hike.hike_name }}</h5>
                     <p class="card-text">{{ hike.region }}</p>
                     <p class="card-text">{{ hike.distance }} miles </p>
                     <a href="{% url 'hike_info' hike.slug %}" class="btn blue-btn">View the route</a>
+
                 </div>
             </div>
         </div>

@@ -159,12 +159,18 @@ h6,
     justify-content: center;
 }
 
-.like-count {
-    font-size: 15px;
-    flex-grow: 1;
-    text-align: right;
+/* How to make an icon with meaning accessible: https://dev.to/gathoni/how-to-make-font-awesome-icons-more-accessible-2m8 */
+.sr-only {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
 }
 
+/* Pagination */
 .pagination a {
     color:#000
 }
