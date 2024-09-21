@@ -3,19 +3,19 @@ from . import views
 
 urlpatterns = [
     path(
+        'create-hike/',
+        views.new_hike,
+        name='new_hike'),
+    path(
         '<slug:slug>/',
         views.hike_info,
         name='hike_info'),
     path(
-        'hikes/create-hike/',
-        views.new_hike,
-        name='new_hike'),
-    path(
-        'hikes/update-hike/<slug:slug>/',
+        'update-hike/<slug:slug>/',
         views.update_hike,
         name='update_hike'),
     path(
-        'hikes/delete-hike/<slug:slug>/',
+        'delete-hike/<slug:slug>/',
         views.delete_hike,
         name='delete_hike'),
     path(
