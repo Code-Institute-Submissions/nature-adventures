@@ -1,6 +1,6 @@
 # Nature Adventures
 
-Luonto is a website designed to allow people to share information about their favourite hiking routes with others.
+Nature Adventures is a website designed to allow people to share information about their favourite hiking routes with others.
 
 The website aims to encourage people encourage each other to go outdoors by sharing advice and informatio with each other. Registered users of the website vote the routes to indicate to other users which routes they have liked. 
 
@@ -27,8 +27,9 @@ Before development was started the User Stories were transferred to GitHub proje
 
 | After Iteration 1 | After Iteration 2 | After Iteration 3 |
 | ---               |  ---              |  ---              |
-|![User Stories - Iteration 1](assets/readme_files/user_stories/User-stories-Iteration-1.png)|![User Stories - Iteration 2](assets/readme_files/user_stories/User-stories-iteration-2.png)|![User Stories - Iteration 3](assets/readme_files/user_stories/user-stories-iteration-3.png)|
+|![User Stories - Iteration 1](assets/readme_files/user_stories/User_stories_Iteration_1.png)|![User Stories - Iteration 2](assets/readme_files/user_stories/User_stories_iteration_2.png)|![User Stories - Iteration 3](assets/readme_files/user_stories/user_stories_iteration_3.png)|
 
+The Kanban board can be accessed [here](https://github.com/users/jonnlai/projects/3)
 
 ### Database Model
 
@@ -190,14 +191,16 @@ In addition to manual checks, responsiveness was tested further using Chrome Dev
 
 * **Navigation bar**
 
-    | Feature               | Outcome                                                                                               | Pass/Fail |
-    | ---                   | ---                                                                                                   | ---       |
-    | Main logo             | Redirects to the main page/hikes list.                                                                | Pass      |
-    | Hikes link            | Redirects to the main page/hikes list. When the page is active, the font colour is slightly darker.   | Pass      |
-    | Add a Hike link       | Redirects to the new hike page. Only visible when logged in.                                          | Pass      |
-    | My Profile link       | Only displayed when logged in. The correct user is shown. Redirects to the user's profiles.           | Pass      |
-    | Logout                | Only displayed when logged in. Redirects to the logout page.                                          | Pass      |
-    | Hamburger menu        | Navigation menu works as expected on smaller devices.                                                 | Pass      |
+    | Feature               | Outcome                                                                                                           | Pass/Fail |
+    | ---                   | ---                                                                                                               | ---       |
+    | Main logo             | Redirects to the main page/hikes list.                                                                            | Pass      |
+    | Hikes link            | Redirects to the main page/hikes list. When the page is active, the font colour is slightly darker.               | Pass      |
+    | Add a Hike link       | Redirects to the new hike page. Only visible when logged in. When active, the font color is slightly darker.      | Pass      |
+    | My Profile link       | Only displayed when logged in. The correct user is shown. Redirects to the user's profiles.                       | Pass      |
+    | Logout                | Only displayed when logged in. Redirects to the logout page.                                                      | Pass      |
+    | Login                 | Only displayed when not logged in. Redirects to the login page.                                                   | Pass      |
+    | Register              | Only displayed when not logged in. Redirects to the registeration page.                                           | Pass      |
+    | Hamburger menu        | Navigation menu works as expected on smaller devices.                                                             | Pass      |
 
 * **Footer**
 
@@ -209,26 +212,29 @@ In addition to manual checks, responsiveness was tested further using Chrome Dev
 
 * **Hikes list**
 
-    | Feature               |   Outcome                                                                                             | Pass/Fail |
-    | ---                   |  ---                                                                                                  | ---       |
-    | List                  | A list is displayed and ordered based on the number of likes.                                         | Pass      |
-    | View hike button      | Works as expected. Hover effect works as expected                                                     | Pass      |
-    | Pagination            | Works as expected. Previous/next button is disabled appropriately.                                    | Pass      |
+    | Feature               |   Outcome                                                                                                                         | Pass/Fail |
+    | ---                   |  ---                                                                                                                              | ---       |
+    | List                  | A list is displayed and ordered based on the number of likes.                                                                     | Pass      |
+    | Likes                 | The number of likes are displayed on the top right-hand over. The number updates appropriately.                                   | Pass      |
+    | View hike button      | Works as expected. Opens a page about the selected hike. Hover effect works as expected.                                          | Pass      |
+    | Pagination            | Works as expected. Three pages are always listed. The current page is indicated. Previous/next button is disabled appropriately.  | Pass      |
 
 * **Hike detail**
 
-    | Feature               |   Outcome                                                                                                     | Pass/Fail |
-    | ---                   |  ---                                                                                                          | ---       |
-    | Login                 | If not logged in, request to login or register is displayed                                                   | Pass      |
-    | Hike details          | Displayed as expected                                                                                         | Pass      |
-    | Hike image            | Displayed as expected. Aspect ratio 4:3.                                                                      | Pass      |
-    | Hike author           | Displayed correctly. Clicking the name redirects to their profile.                                            | Pass      |
-    | Date added            | Displayed correctly                                                                                           | Pass      |
-    | Likes                 | Number of likes displayed. If there are likes, clicking opens a popover that shows who has liked the hike.    | Pass      |
-    | Like button           | The word like and correct icon displayed. Hover effect works. When clicked the button changes to 'unlike'.    | Pass      |
-    | Return button         | Redirects to Hikes list page.                                                                                 | Pass      |
-    | Update Hike button    | Displayed only to the author. Redirects to Update Hike page. Hover effect works correctly.                    | Pass      |
-    | Delete Hike button    | Displayed only to the author. Opens a modal window.                                                           | Pass      |
+    | Feature               |   Outcome                                                                                                                                      | Pass/Fail |
+    | ---                   |  ---                                                                                                                                           | ---       |
+    | Login                 | If not logged in, request to login or register is displayed                                                                                    | Pass      |
+    | Hike details          | Displayed as expected                                                                                                                          | Pass      |
+    | Hike image            | Displayed as expected. Aspect ratio 4:3. The placeholder image is displayed if no image has been added by the user.                            | Pass      |
+    | Hike author           | Displayed correctly. Clicking the name redirects to their profile.                                                                             | Pass      |
+    | Date added            | Displayed correctly                                                                                                                            | Pass      |
+    | Likes                 | Number of likes displayed. If there are likes, clicking the link opens a popover that shows who has liked the hike.                            | Pass      |
+    | Like button           | The word like and correct icon displayed. Hover effect works. When clicked the button changes to 'unlike'.                                     | Pass      |
+    | Unlike button         | The word 'unlike' and correct icon displayed. Hover effect works. When clicked, the button changes to 'like'.                                  | Pass      |
+    | Return to Hikes button| Displayed if the previous URL was a page higher than 1 of the paginated list of hikes. Redirects the user back on the page number they were on.| Pass      |
+    | Go to Hikes button    | Displayed if the previous URL was any other page than above. Redirects the user back on the first page of the list of hikes.                   | Pass      |
+    | Update Hike button    | Displayed only to the author. Redirects to Update Hike page. Hover effect works correctly.                                                     | Pass      |
+    | Delete Hike button    | Displayed only to the author. Opens a modal window. Hover effect works correctly.                                                              | Pass      |
 
 * **Update Hike**
 
@@ -246,12 +252,49 @@ In addition to manual checks, responsiveness was tested further using Chrome Dev
     | ---                   |  ---                                                                                                          | ---       |
     | Modal                 | Confirms the name of the hike being deleted.                                                                  | Pass      |
     | Close button          | Hover works as expected. Closes the modal if clicked.                                                         | Pass      |
-    | Delete                | Hover works as expected. Deletes the hike if clicked. Redirects to hikes list.                                | Pass      |
+    | Delete button         | Hover works as expected. Deletes the hike if clicked. Redirects to hikes list.                                | Pass      |
 
-* **Create a Hike**
+* **Add a Hike**
 
     | Feature               |   Outcome                                                                                                     | Pass/Fail |
     | ---                   |  ---                                                                                                          | ---       |
+    | Login                 | If trying to access the page without logging in, the user is redirected to the login page.                    | Pass      |
+    | Hike name             | Error message is displayed if invalid name is given including names already in use.                           | Pass      |
+    | Region                | Required field. Works as expected.                                                                            | Pass      |
+    | Distance              | Error message is displayed if distance is not >=1 and <=200                                                   | Pass      |
+    | Description           | Works as expected. Required field.                                                                            | Pass      |
+    | Image                 | Uploads correct. Not a required field. Uses placeholder image if no image added.                              | Pass      |
+    | Save button           | Works as expected. Redirects to the hike page after saving successfully.                                      | Pass      |
+    | Error message         | Displayed correctly below the navigation bar.                                                                 | Pass      |
+
+* **Profile**
+
+    | Feature               |   Outcome                                                                                                     | Pass/Fail |
+    | ---                   |  ---                                                                                                          | ---       |
+    | Automatic creation    | A profile is created automatically when new user signs up. All information is left blank.                     | Pass      |
+    | User datails          | Displayed as expected.                                                                                        | Pass      |
+    | Profile image         | Default image shown if no image has been uploaded. Image displayed correctly.                                 | Pass      |
+    | Hike links            | Links to likes and added hikes displayed below user details. Links work correctly.                            | Pass      |
+    | Update profile button | Only displayed to the owner of the profile. Always directs the user to edit their own profile only.           | Pass      |
+
+* **Update Profile**
+
+    | Feature               |   Outcome                                    | Pass/Fail |
+    | ---                   |  ---                                         | ---       |
+    | Region                | Functions as expected.                       | Pass      |
+    | Image                 | Uploads image correctly.                     | Pass      |
+    | About                 | Functions as expected.                       | Pass      |
+    | Save button           | Functions as expected. Redirects to profile  | Pass      |
+
+* **Authentication**
+
+    | Feature               |   Outcome                                    | Pass/Fail |
+    | ---                   |  ---                                         | ---       |
+    | Login                 | Works as expected.                           | Pass      |
+    | Register              | Works as expected.                           | Pass      |
+    | Logout                | Works as expected.                           | Pass      |
+
+
 
 ### Unit testing
 
@@ -269,10 +312,6 @@ In addition to manual checks, responsiveness was tested further using Chrome Dev
 * [Django](https://www.djangoproject.com/) web framework was used to develop the site.
 
 * [Django Template](https://jinja.palletsprojects.com) was used as a templating language for Django.
-
-* [Google Fonts](https://fonts.google.com) was used to import the fonts used.
-
-* [Font Awesome](https://fontawesome.com) was used to add icons such as social media icons and the "like" icon.
    
 * [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) was used throughout the website to improve responsiveness and styling.
 
@@ -291,6 +330,42 @@ In addition to manual checks, responsiveness was tested further using Chrome Dev
 ### Database Management
 
 * [Postgres](https://www.postgresql.org/) object-relational database system was used in production.
+
+### Tools and Programs
+
+* [Git](https://git-scm.com) was used for version control.
+
+* [GitPod](https://gitpod.io/) was used for writing code, committing, and then pushing to GitHub.
+
+* [GitHub](https://github.com) was used to store the code.
+
+* [Heroku](https://www.heroku.com) was used to deploy the website.
+
+* [Tiny PNG](https://tinypng.com) was used to reduce the file size of the images.
+
+* [Pixelied](https://pixelied.com/convert/jpg-converter/jpg-to-webp) was used to convert images to WEBP format.
+
+* [Coolors](https://coolors.co) was used to create a color scheme for the website.
+
+* [Balsamiq](https://balsamiq.com/) was used to create the wireframes.
+
+* [Chrome DevTools](https://developer.chrome.com/docs/devtools/) were used during development process for code review and to test responsiveness.
+
+* [W3C Markup Validator](https://validator.w3.org/) was used to validate the HTML code.
+
+* [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate the CSS code.
+
+* [JSHint](https://jshint.com/) was used to validate the site's JavaScript code.
+
+* [autopep8](https://pypi.org/project/autopep8/) was used to automatically validate the site's Python code.
+
+* [flake8](https://flake8.pycqa.org/en/latest/) was used to validate the site's Python code.
+
+* [Favicon.cc](https://www.favicon.cc/) was used to create the site favicon.
+
+* [Google Fonts](https://fonts.google.com) was used to import the fonts used.
+
+* [Font Awesome](https://fontawesome.com) was used to add icons such as social media icons and the "like" icon.
 
 
 https://learndjango.com/tutorials/django-slug-tutorial
