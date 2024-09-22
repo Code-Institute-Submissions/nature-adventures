@@ -41,9 +41,6 @@ class Hike(models.Model):
     slug = models.SlugField(max_length=100, unique=True)
     route_image = CloudinaryField('image', default='placeholder')
 
-    class Meta:
-        pass
-
     def __str__(self):
         return f"{self.hike_name}"
 

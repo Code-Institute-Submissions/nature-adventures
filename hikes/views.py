@@ -81,7 +81,7 @@ def hike_info(request, slug):
          "previous_url": previous_url,},
     )
 
-
+@login_required
 def new_hike(request):
     """
     Allow user to add a new hike
@@ -117,10 +117,8 @@ def new_hike(request):
                 messages.add_message(
                     request,
                     messages.ERROR,
-                    'There has been an error, please try again.'
-                )
-                return redirect('hikes_list')
-                
+                    f'There has been an error, please try again.'
+                    )        
     return render(
         request,
         "hikes/create_hike.html",
@@ -162,7 +160,7 @@ def update_hike(request, slug):
         else:
             messages.add_message(
                 request,
-                messages.SUCCESS,
+                messages.ERROR,
                 'Error updating the hike. Please try again'
             )
     return render(
@@ -172,7 +170,7 @@ def update_hike(request, slug):
          "update_form": update_form}
     )
 
-
+@login_required
 def delete_hike(request, slug):
     """
     Delete a hike.
@@ -197,7 +195,7 @@ def delete_hike(request, slug):
             'Error has occured. Please try again.')
     return HttpResponseRedirect(reverse('hikes'))
 
-
+@login_required
 def like_hike(request, slug):
     """
     Like or unlike a hike.

@@ -69,27 +69,6 @@ h6,
     width: 130px;
 }
 
-#like-btn {
-    margin: 20px auto;
-    max-width: 100px;
-}
-
-.like-symbol {
-    font-size: 20px;
-    color:#fff;
-}
-
-.like-symbol:hover {
-    color:black;
-}
-
-.likes-popover {
-    width: 100px;
-    padding: 0 0 0 12px;
-    text-align: left;
-    border: none
-}
-
 .blue-btn {
     background-color: #293243;
     color: #fff;
@@ -124,8 +103,29 @@ h6,
     border: solid 1px #000;
 }
 
-/* Profile page */
+/* Likes */
+#like-btn {
+    margin: 20px auto;
+    max-width: 100px;
+}
 
+.like-symbol {
+    font-size: 20px;
+    color:#fff;
+}
+
+.like-symbol:hover {
+    color:black;
+}
+
+.likes-popover {
+    width: 100px;
+    padding: 0 0 0 12px;
+    text-align: left;
+    border: none
+}
+
+/* Profile page */
 .profile-content {
     display: flex;
     justify-content: space-around;
@@ -170,6 +170,14 @@ h6,
     width: 1px;
 }
 
+.add-hike {
+    margin: 50px auto 10vh;
+    padding: 10px;
+    max-width: 600px;
+    text-align: center;
+    border-radius: 5px;
+}
+
 /* Pagination */
 .pagination a {
     color:#000
@@ -184,15 +192,6 @@ h6,
     background-color: #293243;
     color: #fff;
 }
-
-.add-hike {
-    margin: 50px auto 10vh;
-    padding: 10px;
-    max-width: 600px;
-    text-align: center;
-    border-radius: 5px;
-}
-
 
 /* Footer */
 .footer {
@@ -224,7 +223,6 @@ h6,
 }
 
 /* 404 page */
-
 .error-msg {
     margin: 5vh auto 13vh;
     padding: 10px 5px;
@@ -271,5 +269,4 @@ h6,
     .content-container {
         width: 900px
     }
-
 }
