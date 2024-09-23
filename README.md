@@ -21,7 +21,7 @@ Visit the deployed site [here](https://nature-adventures-b39f8380b4ce.herokuapp.
 
 Excel spreadsheet was used to collect epics and user stories before development was started. Four Epics were identified to help to organise the work: 1. User Profiles, 2. Routes, 3. Managing Routes and 4. Interacting with Routes. These Epics were broekn down into user stories with clearly definied Acceptance Criteria, Story Points and MoSCoW prioritisation. 
 
-![All User Stories](assets/readme_files/user_stories/user-stories-all.png)
+![All User Stories](assets/readme_files/user_stories/user_stories_all.png)
 
 Before development was started the User Stories were transferred to GitHub projects that was used as a Kanban board to track user stories and the progress made.
 
@@ -32,6 +32,16 @@ Before development was started the User Stories were transferred to GitHub proje
 The Kanban board can be accessed [here](https://github.com/users/jonnlai/projects/3)
 
 ### Database Model
+
+The database model was designed using [Lucid](https://lucid.app/). PostgreSQL object-relational database management system was used.
+
+![DB model](assets/readme_files/db_model.png)
+
+### Structure
+
+The site allows for effortless and intuitive navigation due clear structure and consistent header, footer and navigation bar across all pages. [Lucid](https://lucid.app/) was used to plan the website structure.
+
+![Structure](assets/readme_files/structure.png)
 
 ### Wireframes
 
@@ -60,56 +70,127 @@ The main font used is Raleway with sans serif as the backup font. The font used 
 ### General
 
 * The website was designed following mobile first and responsive design principles.
-* The navigation bar is consistent across all the pages allowing the user to navigate the site easily. The navigation bar contains Nature Adventure's logo and links to all the sections. 
-* The footer also is the same on all the pages and allows users to easily access Nature Adventure's social media sites. 
+
+#### Navigation bar
+
+The navigation bar is consistent across all the pages allowing the user to navigate the site easily. The navigation bar contains Nature Adventure's logo and links to all the sections that the user has access to. When using a smaller device, dropdown hamburger menu is displayed.
+
+| Navbar                    | Image                                                                          |
+| ---                       | ---                                                                            |
+| User logged in            | ![Navbar logged in](assets/readme_files/features/header_logged_in.png)         |
+| User not logged in        | ![Navbar not logged in](assets/readme_files/features/header_not_logged_in.png) |
+| Smaller devices           | ![Burger menu](assets/readme_files/features/burger_menu.png)                   |
+
+#### Footer
+
+The footer also is the same on all the pages and allows users to easily access Nature Adventure's social media sites.
+
+![Footer](assets/readme_files/features/footer.png)
 
 ### Hikes
 
 * The Home page displays a paginated list of all the hikes that have been added to the site.
 * The hikes are displayed in the order of total likes received. The hike that has received the most likes is displayed first. 
 * All the users can see basic information about the hikes including the name, distance, region and the total number of likes the hike has received.
-* Non-registred users are encouraged to login or sign up to be able to use other functionalities.
-* Registered users are displayed a link to their own profile and the page to add more hikes.
+
+    ![Hikes](assets/readme_files/features/hikes.png)
+
+#### Pagination
+
+The pagination controls always displays three page numbers highlighting the page that user is on. The next and previous buttons are disabled as appropriate if the user is on the first or last page.
+
+![Pagination](assets/readme_files/features/pagination_controls.png)
+
+#### Non-registered users
+
+Non-registered users are encouraged to login or sign up to be able to use other functionalities.
+
+![Promo](assets/readme_files/features/promo.png)
 
 ### Hike detail
 
-* If non-registered user attempts to access the hike details, they are advised to login or sign up. 
-* Registered users are able to view all the hike details including name, distance, region, author, date created, number of likes and which users have liked the hike.
-* The user who created the hike also has "Edit" and "Delete" buttons to allow them to manage their hikes.
-* All registered users other than the author of the hike are able to like/unlike the hike. It is displayed above the hike button if the user has already liked the hike. 
-* A list of all users who have liked the hike is displayed as a Bootstrap popover.
+#### Login
 
-### Edit hike
+If non-registered user attempts to access the hike details, they are advised to login or sign up.
 
-* Edit hike page allows the author of the hike to make edits to the information that they has added.
-* The current information about the hike has been prefilled for the ease of use. 
+![Login to view](assets/readme_files/features/login_to_view.png)
 
-### Delete hike
+#### Details
 
+Registered users are able to view all the hike details including name, distance, region, author, date created, number of likes and which users have liked the hike.
+
+![Hike detail](assets/readme_files/features/hike_detail.png)
+
+#### Update/delete buttons
+
+The user who created the hike also has "Update" and "Delete" buttons to allow them to manage their hikes.
+
+![Update and delete buttons](assets/readme_files/features/edit_delete_btns.png)
+
+#### Likes
+
+All registered users other than the author of the hike are able to like/unlike the hike. 'You have liked this hike' is displayed above the hike button if the user has already liked the hike. A list of all users who have liked the hike is displayed as a Bootstrap popover.
+
+| Feature       | Image                                                     |
+| ---           | ---                                                       |
+| Like button   | ![Like button](assets/readme_files/features/like.png)     |
+| Unlike button | ![Unlike button](assets/readme_files/features/unlike.png) |
+| Popover       | ![Popover](assets/readme_files/features/who_likes.png)    |
+
+### Add/update/delete hikes
+
+* Add a hike form allows registered users to share their knowledge by add new hiking routes.
+* Update hike page allows the author of the hike to make edits to the information that they has added. The current information about the hike has been prefilled for the ease of use.
 * Delete hike button opens a delete hike modal that confirms that the user really wants to delete the hike. 
 
-### Create a hike
-
-* Create hike form allows registered users to share their knowledge by add new hiking routes.
+    | Add a hike                                              |   Update a hike                                           | Delete a hike                                                |
+    | ---                                                     | ---                                                       | ----                                                         |
+    | ![Add a hike](assets/readme_files/features/add_hike.png)| ![Update hike](assets/readme_files/features/edit_hike.png)|![Delete a hike](assets/readme_files/features/delete_hike.png)|
 
 ### Profile page
 
-* Registered users can view their own profiles as well as the profiles of other registered users.
-* In addition to username, region and description, the hikes that the user has created and liked are also displayed.
+Registered users can view their own profiles as well as the profiles of other registered users. In addition to username, region and description, the hikes that the user has created and liked are also displayed.
 
-### Edit profile
+![Profile](assets/readme_files/features/profile.png)
 
-* Users can edit their own profile to ensure that their information is up-to-date. 
+### Update profile
+
+Users can update their own profile to ensure that their information is up-to-date.
+
+![Update profile](assets/readme_files/features/update_profile.png)
 
 ### Authentication pages
 
 * The registeration page allows new users to sign up and create a profile for the site.
 * The login page allows registered users to sign in using their login details.
-* The logout page allows registered users to sign out. 
+* The logout page allows registered users to sign out.
+
+| Register                                                  | Login                                             | Logout                                             |
+| ---                                                       | ---                                               | ---                                                |
+| ![Register](assets/readme_files/features/register.png)    | ![Login](assets/readme_files/features/login.png)  | ![Logout](assets/readme_files/features/logout.png) |
 
 ## Testing
 
 ### Testing user stories
+
+#### User Profiles
+1. As a site user, I can create a user profile so that I can share information about myself with other site users
+2. As a site user I can upload a profile picture so that I feel more connected to the other site users
+3. As a registered site user I can view my liked hikes on my profile so that I and other user can see what hikes I have liked
+
+#### Routes
+1. As a site user I can view a list of hiking routes so that I can use them for inspiration
+2. As a site user I can view information about the hiking routes so that plan my hiking adventures
+
+#### Managing Routes
+1. As a registered site user I can create a new route so that I can recommend routes to other hiking enthusiasts
+2. As a registered site user I can edit routes than I have created so that I can improve them and correct any mistake
+3. As a registered site user I can delete a route that I have created so that I can remove any information I have added previously
+
+#### Interacting with Routes
+1. As a registered site user I can like a route so that I can express to other site users my opinion of the route
+
+
 
 ### Code validation
 
