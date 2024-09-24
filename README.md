@@ -207,8 +207,6 @@ Users can update their own profile to ensure that their information is up-to-dat
 ### Libraries and Frameworks used
 
 * [Django](https://www.djangoproject.com/) web framework was used to develop the site.
-
-* [Django Template](https://jinja.palletsprojects.com) was used as a templating language for Django.
    
 * [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) was used throughout the website to improve responsiveness and styling.
 
@@ -229,6 +227,8 @@ Users can update their own profile to ensure that their information is up-to-dat
 * [Postgres](https://www.postgresql.org/) object-relational database system was used in production.
 
 ### Tools and Programmes
+
+* [Jinja](https://jinja.palletsprojects.com) was used as a templating engine.
 
 * [Git](https://git-scm.com) was used for version control.
 
