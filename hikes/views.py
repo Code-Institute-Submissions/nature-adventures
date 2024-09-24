@@ -104,16 +104,28 @@ def new_hike(request):
         if request.method == "POST":
             if hike_form.is_valid():
                 added_hike = hike_form.save(commit=False)
-                # Add the current user as the author
-                added_hike.author = request.user
-                # Add slugified hike_name as the slug
-                added_hike.slug = slugify(added_hike.hike_name)
-                added_hike.save()
-                messages.add_message(
-                    request,
-                    messages.SUCCESS,
-                    'Your hiking route has been added successfully!')
-                return redirect('hike_info', added_hike.slug)
+                # Check that the hike name contains letters
+                name_valid = False
+                for char in added_hike.hike_name:
+                    if char.isalpha():
+                        name_valid = True
+                if name_valid == True:
+                    # Add the current user as the author
+                    added_hike.author = request.user
+                    # Add slugified hike_name as the slug
+                    added_hike.slug = slugify(added_hike.hike_name)
+                    added_hike.save()
+                    messages.add_message(
+                        request,
+                        messages.SUCCESS,
+                        'Your hiking route has been added successfully!')
+                    return redirect('hike_info', added_hike.slug)
+                else:
+                    messages.add_message(
+                        request,
+                        messages.ERROR,
+                        'The hike name needs to contain letters'
+                    )
             else:
                 messages.add_message(
                     request,
