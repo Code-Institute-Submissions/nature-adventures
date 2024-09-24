@@ -37,7 +37,7 @@ Before development was started the User Stories were transferred to GitHub proje
 
 | After Iteration 1 | After Iteration 2 | After Iteration 3 |
 | ---               |  ---              |  ---              |
-|![User Stories - Iteration 1](assets/readme_files/user_stories/User_stories_Iteration_1.png)|![User Stories - Iteration 2](assets/readme_files/user_stories/User_stories_iteration_2.png)|![User Stories - Iteration 3](assets/readme_files/user_stories/user_stories_iteration_3.png)|
+|![User Stories - Iteration 1](assets/readme_files/user_stories/user_stories_iteration_1.png)|![User Stories - Iteration 2](assets/readme_files/user_stories/user_stories_iteration_2.png)|![User Stories - Iteration 3](assets/readme_files/user_stories/user_stories_iteration_3.png)|
 
 The Kanban board can be accessed [here](https://github.com/users/jonnlai/projects/3)
 
