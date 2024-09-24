@@ -1,12 +1,22 @@
 # Nature Adventures
 
+![Mockup](assets/readme_files/mockup.png)
+
 Nature Adventures is a website designed to allow people to share information about their favourite hiking routes with others.
 
-The website aims to encourage people encourage each other to go outdoors by sharing advice and informatio with each other. Registered users of the website vote the routes to indicate to other users which routes they have liked. 
+The website aims to create a community of people who encourage each other to go outdoors by sharing advice and information with other users. Registered users of the website can give 'likes' to the routes to help other users to decide which hike they might want to try next.
 
 Visit the deployed site [here](https://nature-adventures-b39f8380b4ce.herokuapp.com/)
 
 ## Table of Contents
+
+1. [User Experience(UX)](#user-experience-ux)
+2. [Features](#features)
+3. [Technologies Used](#technologies-used)
+4. [Testing](#testing)
+5. [Deployment](#deployment)
+6. [Finished product](#finished-product)
+7. [Credits](#credits)
 
 ## User Experience (UX)
 
@@ -477,6 +487,8 @@ In addition to manual checks, responsiveness was tested further using Chrome Dev
 
 The developer is new to automated testing but some unit tests were created and run to improve the developers knowledge of unit testing. 
 
+[Back to top](#nature-adventures)
+
 ## Deployment
 
 [GitPod](https://gitpod.io/) workspace was used to develop this project, and the code was commited to [Git](https://git-scm.com/) and pushed to [GitHub](https://github.com/").
@@ -502,6 +514,8 @@ This website was deployed to Heroku as follows:
     * Connect the Github repo to the Heroku app.
     * Manually or automatically deploy from the main branch.
 
+[Back to top](#nature-adventures)
+
 ## Finished Product
 
 | Page          | Desktop                                                                   | Mobile                                                                                    |
@@ -518,41 +532,41 @@ This website was deployed to Heroku as follows:
 | Sign out      | ![Sign out](assets/readme_files/finished_product/sign_out.png)            | ![Sign out - mobile](assets/readme_files/finished_product/sign_out_mobile.png)            |
 | 404 page      | ![404](assets/readme_files/finished_product/404.png)                      | ![404 - mobile](assets/readme_files/finished_product/404_mobile.png)                      |
 
+[Back to top](#nature-adventures)
 
+## Credits:
 
-## Credits: 
+### Content
 
-https://learndjango.com/tutorials/django-slug-tutorial
-- default hiking image: Photo by Guduru Ajay bhargav: https://www.pexels.com/photo/people-walking-on-road-near-trees-at-daytime-photo-1076081/
-- default hiking image 2: Photo by Eric Sanman: https://www.pexels.com/photo/group-of-person-walking-in-mountain-1365425/
-- Seven Sisters: Photo by Andras Stefuca: https://www.pexels.com/photo/seven-sisters-sussex-england-17568779/
-- background image: Photo by Markus Spiske: https://www.pexels.com/photo/light-landscape-nature-forest-117843/
-- Snowdon: Photo by Julien Goettelmann: https://www.pexels.com/photo/scenic-panorama-of-a-mountain-lake-snowdon-wales-uk-12021273/
-- Lake District (Helvellyn): Photo by T6 Adventures: https://www.pexels.com/photo/lake-wast-water-in-wasdale-valley-part-of-lake-district-national-park-18671162/
-- surrey: Photo by Ollie Craig: https://www.pexels.com/photo/ancient-gothic-tower-located-on-hill-surrounded-by-green-trees-5344943/
-- compass: Photo by Supushpitha Atapattu: https://www.pexels.com/photo/round-grey-and-black-compass-1736222/
+* Most of the content was written by the developer.
+* Box Hill Hike information information was taken from [National Trust](https://www.nationaltrust.org.uk/visit/surrey/box-hill/the-box-hill-hike)
+* Inspiration for the Snowdonia hikes was taken from [Eryri National Park](https://snowdonia.gov.wales/) and for Seven Sisters hike from [AllTrails](https://www.alltrails.com/en-gb)
 
-- profile pic - hiker123 : Photo by mohamed abdelghaffar: https://www.pexels.com/photo/man-in-black-jacket-771742/
-- profile pic - admin: Photo by George Dolgikh: https://www.pexels.com/photo/woman-taking-selfie-while-smiling-1310522/
-- profile pic - vaeltaja: Photo by Italo Melo: https://www.pexels.com/photo/portrait-photo-of-smiling-man-with-his-arms-crossed-standing-in-front-of-a-wall-2379004/
-- profile pic - user1 : Photo by Christina Morillo: https://www.pexels.com/photo/woman-standing-near-whiteboard-1181519/
-- profile pic: Photo by Anna Nekrashevich: https://www.pexels.com/photo/photo-of-man-wearing-eyeglasses-6801642/
+### Media 
 
--Favicon: <a href="https://www.freepik.com/icon/compass_10507707#fromView=search&page=2&position=33&uuid=8f47f99c-0454-4226-bf39-8848ce14fd41">Icon by Smashicons</a>
+#### Pexels
+* Background image: Photo by Markus Spiske: https://www.pexels.com/photo/light-landscape-nature-forest-117843/
+* Default hiking image: Photo by Eric Sanman: https://www.pexels.com/photo/group-of-person-walking-in-mountain-1365425/
+* Seven Sisters: Photo by Andras Stefuca: https://www.pexels.com/photo/seven-sisters-sussex-england-17568779/
+* Snowdon: Photo by Julien Goettelmann: https://www.pexels.com/photo/scenic-panorama-of-a-mountain-lake-snowdon-wales-uk-12021273/
+* Lake District: Photo by T6 Adventures: https://www.pexels.com/photo/lake-wast-water-in-wasdale-valley-part-of-lake-district-national-park-18671162/
+* Surrey: Photo by Ollie Craig: https://www.pexels.com/photo/ancient-gothic-tower-located-on-hill-surrounded-by-green-trees-5344943/
+* Profile image of hiker123 : Photo by mohamed abdelghaffar: https://www.pexels.com/photo/man-in-black-jacket-771742/
+* Profile image of admin: Photo by George Dolgikh: https://www.pexels.com/photo/woman-taking-selfie-while-smiling-1310522/
+* Profile image of vaeltaja: Photo by Italo Melo: https://www.pexels.com/photo/portrait-photo-of-smiling-man-with-his-arms-crossed-standing-in-front-of-a-wall-2379004/
+* Profile image of user1 : Photo by Christina Morillo: https://www.pexels.com/photo/woman-standing-near-whiteboard-1181519/
 
-<a href="https://www.freepik.com/free-photo/crop-hand-with-compass-nature_2415325.htm#fromView=search&page=1&position=47&uuid=66f2ab65-d34d-4178-990c-bc72d2c66713">Image by freepik</a>
+#### Freepik
+* Default profile image: https://www.freepik.com/free-vector/flat-design-sport-silhouette_65686980.htm#fromView=search&page=1&position=9&uuid=9fad7fc0-9ade-4f98-8fae-b41f0a5853fd
+* 404 compass: https://www.freepik.com/free-photo/crop-hand-with-compass-nature_2415325.htm#fromView=search&page=1&position=47&uuid=66f2ab65-d34d-4178-990c-bc72d2c66713
+* Favicon: Icon by Smashicons - https://www.freepik.com/icon/compass_10507707#fromView=search&page=2&position=33&uuid=8f47f99c-0454-4226-bf39-8848ce14fd41
 
-<a href="https://www.freepik.com/free-vector/flat-design-sport-silhouette_65686980.htm#fromView=search&page=1&position=9&uuid=9fad7fc0-9ade-4f98-8fae-b41f0a5853fd">Image by freepik</a>
+### Code
 
-###Credits:
+* Inspiration for how to create a profile was taken from: https://dev.to/earthcomfy/django-user-profile-3hik and https://www.youtube.com/watch?v=KNvSWubOaQY
+* How to create profile automatically using signals taken from: https://www.youtube.com/watch?v=H8MmNqDyra8&list=PLCC34OHNcOtoQCR6K4RgBWNi3-7yGgg7b&index=3
+* Inspiration for how to create a paginated list taken from: https://realpython.com/django-pagination/ and https://docs.djangoproject.com/en/5.1/ref/paginator/
+* [Django documentation](https://docs.djangoproject.com/en/5.1/), [Stack Overflow](https://stackoverflow.com/) and [W3Schools](https://www.w3schools.com/) were consulted on regular basis for inspiration and better understanding.
+* Inspiration was taken from [Code Institute](https://codeinstitute.net/)'s blog walkthrough project.
 
-automatically create profile:
-# How to create profile automatically using signals taken from:
-# https://www.youtube.com/watch?v=H8MmNqDyra8&list=
-# PLCC34OHNcOtoQCR6K4RgBWNi3-7yGgg7b&index=3
-
-how to create a profile:
-# Inspiration taken from:
-# https://dev.to/earthcomfy/django-user-profile-3hik
-# and https://www.youtube.com/watch?v=KNvSWubOaQY
-
+[Back to top](#nature-adventures)
