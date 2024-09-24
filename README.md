@@ -502,6 +502,24 @@ This website was deployed to Heroku as follows:
     * Connect the Github repo to the Heroku app.
     * Manually or automatically deploy from the main branch.
 
+## Finished Product
+
+| Page          | Desktop                                                                   | Mobile                                                                                    |
+| ---           | ---                                                                       | ---                                                                                       |
+| Hikes         | ![Hikes](assets/readme_files/finished_product/hikes.png)                  | ![Hikes - mobile](assets/readme_files/finished_product/hikes_mobile.png)                  |
+| Add a hike    | ![Add hike](assets/readme_files/finished_product/add_hike.png)            | ![Add hike - mobile](assets/readme_files/finished_product/add_hike_mobile.png)            |
+| Hike detail   | ![Hike detail](assets/readme_files/finished_product/hike_detail.png)      | ![Hike detail - mobile](assets/readme_files/finished_product/hike_detail_mobile.png)      |
+| Update hike   | ![Update hike](assets/readme_files/finished_product/update_hike.png)      | ![Update hike - mobile](assets/readme_files/finished_product/update_hike_mobile.png)      |
+| Delete hike   | ![Delete hike](assets/readme_files/finished_product/delete_hike.png)      | ![Delete hike - mobile](assets/readme_files/finished_product/delete_hike_mobile.png)      |
+| Profile       | ![Profile](assets/readme_files/finished_product/profile.png)              | ![Profile - mobile](assets/readme_files/finished_product/profile_mobile.png)              |
+| Update profile| ![Update profile](assets/readme_files/finished_product/update_profile.png)| ![Update profile - mobile](assets/readme_files/finished_product/update_profile_mobile.png)|
+| Sign up       | ![Sign up](assets/readme_files/finished_product/signup.png)               | ![Sign up - mobile](assets/readme_files/finished_product/signup_mobile.png)               |
+| Sign in       | ![Sign in](assets/readme_files/finished_product/sign_in.png)              | ![Sign in - mobile](assets/readme_files/finished_product/sign_in_mobile.png)              |
+| Sign out      | ![Sign out](assets/readme_files/finished_product/sign_out.png)            | ![Sign out - mobile](assets/readme_files/finished_product/sign_out_mobile.png)            |
+| 404 page      | ![404](assets/readme_files/finished_product/404.png)                      | ![404 - mobile](assets/readme_files/finished_product/404_mobile.png)                      |
+
+
+
 ## Credits: 
 
 https://learndjango.com/tutorials/django-slug-tutorial
