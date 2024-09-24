@@ -109,7 +109,7 @@ def new_hike(request):
                 for char in added_hike.hike_name:
                     if char.isalpha():
                         name_valid = True
-                if name_valid == True:
+                if name_valid is True:
                     # Add the current user as the author
                     added_hike.author = request.user
                     # Add slugified hike_name as the slug
