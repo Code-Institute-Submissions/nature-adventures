@@ -59,6 +59,10 @@ The site allows for effortless and intuitive navigation due clear structure and 
 
 ### Colour Scheme
 
+The colour palette was generated using [Coolors](https://coolors.co/). The colours chosen to reflect the natural theme of the site: shades of green, blue and brown. Red was used for the 'delete' buttons to highlight the danger to avoid hikes being deleted accidently.
+
+![Colour palette](assets/readme_files/colour_palette_na.png)
+
 ### Typography
 
 The main font used is Raleway with sans serif as the backup font. The font used for heading and the logo is Playpen Sans with cursive as the backup font. 
@@ -86,6 +90,16 @@ The navigation bar is consistent across all the pages allowing the user to navig
 The footer also is the same on all the pages and allows users to easily access Nature Adventure's social media sites.
 
 ![Footer](assets/readme_files/features/footer.png)
+
+#### Buttons
+
+Three types of button were used: blue, green and red. The background colour of all the buttons change to a lighter shade when hovered over. Blue and green buttons were used throughout the site. Red buttons were only used for 'delete' buttons. 
+
+| Button            | Normal                                                        | Hover                                                                     |
+| ---               | ---                                                           | ---                                                                       |
+| Blue button       | ![Blue button](assets/readme_files/features/btn_blue.png)     | ![Blue button hover](assets/readme_files/features/btn_blue_hover.png)     |
+| Green button      | ![Green button](assets/readme_files/features/btn_green.png)   | ![Green button hover](assets/readme_files/features/btn_green_hover.png)   |
+| Red button        | ![Red button](assets/readme_files/features/btn_red.png)       | ![Red button hover](assets/readme_files/features/btn_red_hover.png)       |
 
 ### Hikes
 
@@ -121,12 +135,6 @@ Registered users are able to view all the hike details including name, distance,
 
 ![Hike detail](assets/readme_files/features/hike_detail.png)
 
-#### Update/delete buttons
-
-The user who created the hike also has "Update" and "Delete" buttons to allow them to manage their hikes.
-
-![Update and delete buttons](assets/readme_files/features/edit_delete_btns.png)
-
 #### Likes
 
 All registered users other than the author of the hike are able to like/unlike the hike. 'You have liked this hike' is displayed above the hike button if the user has already liked the hike. A list of all users who have liked the hike is displayed as a Bootstrap popover.
@@ -136,6 +144,12 @@ All registered users other than the author of the hike are able to like/unlike t
 | Like button   | ![Like button](assets/readme_files/features/like.png)     |
 | Unlike button | ![Unlike button](assets/readme_files/features/unlike.png) |
 | Popover       | ![Popover](assets/readme_files/features/who_likes.png)    |
+
+#### Update/delete buttons
+
+The user who created the hike also has "Update" and "Delete" buttons to allow them to manage their hikes.
+
+![Update and delete buttons](assets/readme_files/features/edit_delete_btns.png)
 
 ### Add/update/delete hikes
 
@@ -169,28 +183,108 @@ Users can update their own profile to ensure that their information is up-to-dat
 | ---                                                       | ---                                               | ---                                                |
 | ![Register](assets/readme_files/features/register.png)    | ![Login](assets/readme_files/features/login.png)  | ![Logout](assets/readme_files/features/logout.png) |
 
+[Back to top](#nature-adventures)
+
+## Technologies Used
+
+### Languages used
+
+* [HTML5](https://en.wikipedia.org/wiki/HTML)
+* [CSS3](https://en.wikipedia.org/wiki/CSS)
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+* [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+
+### Libraries and Frameworks used
+
+* [Django](https://www.djangoproject.com/) web framework was used to develop the site.
+
+* [Django Template](https://jinja.palletsprojects.com) was used as a templating language for Django.
+   
+* [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) was used throughout the website to improve responsiveness and styling.
+
+### Packages and Dependecies installed
+
+* [Django Allauth](https://django-allauth.readthedocs.io/en/latest/) was used for user authentication, registration, and account management.
+
+* [Django Crispy Form](https://django-crispy-forms.readthedocs.io/en/latest/) was used to control the rendering of the forms. 
+ 
+* [Gunicorn](https://gunicorn.org/) was used as the Python Web Server Gateway Interface (WSGI) HTTP server. 
+
+* [Cloudinary](https://cloudinary.com/) was used as the image management solution.
+
+* [Whitenoise](https://pypi.org/project/whitenoise/) was used to serve static files.
+
+### Database Management
+
+* [Postgres](https://www.postgresql.org/) object-relational database system was used in production.
+
+### Tools and Programmes
+
+* [Git](https://git-scm.com) was used for version control.
+
+* [GitPod](https://gitpod.io/) was used for writing code, committing, and then pushing to GitHub.
+
+* [GitHub](https://github.com) was used to store the code.
+
+* [Heroku](https://www.heroku.com) was used to deploy the website.
+
+* [Tiny PNG](https://tinypng.com) was used to reduce the file size of the images.
+
+* [Pixelied](https://pixelied.com/convert/jpg-converter/jpg-to-webp) was used to convert images to WEBP format.
+
+* [Coolors](https://coolors.co) was used to create a color scheme for the website.
+
+* [Balsamiq](https://balsamiq.com/) was used to create the wireframes.
+
+* [Chrome DevTools](https://developer.chrome.com/docs/devtools/) were used during development process for code review and to test responsiveness.
+
+* [W3C Markup Validator](https://validator.w3.org/) was used to validate the HTML code.
+
+* [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate the CSS code.
+
+* [JSHint](https://jshint.com/) was used to validate the site's JavaScript code.
+
+* [autopep8](https://pypi.org/project/autopep8/) was used to automatically validate the site's Python code.
+
+* [flake8](https://flake8.pycqa.org/en/latest/) was used to validate the site's Python code.
+
+* [Favicon.cc](https://www.favicon.cc/) was used to create the site favicon.
+
+* [Google Fonts](https://fonts.google.com) was used to import the fonts used.
+
+* [Font Awesome](https://fontawesome.com) was used to add icons such as social media icons and the "like" icon.
+
+[Back to top](#nature-adventures)
+
 ## Testing
 
 ### Testing user stories
 
 #### User Profiles
 1. As a site user, I can create a user profile so that I can share information about myself with other site users
+    * A user profile gets created automatically when the user signs up. The user can then update their profile information if and when they want to.
 2. As a site user I can upload a profile picture so that I feel more connected to the other site users
+    * Registered users can upload a profile picture.
 3. As a registered site user I can view my liked hikes on my profile so that I and other user can see what hikes I have liked
+    * The hikes that the user has liked are listed on their profile.
 
 #### Routes
 1. As a site user I can view a list of hiking routes so that I can use them for inspiration
+    * All hikes are displayed as a paginated list of hikes on the home page.
 2. As a site user I can view information about the hiking routes so that plan my hiking adventures
+    * All users can see basic information about the hikes. Registered users can view all details by clicking the 'View the hike' link. 
 
 #### Managing Routes
-1. As a registered site user I can create a new route so that I can recommend routes to other hiking enthusiasts
+1. As a registered site user I can create a new route so that I can recommend routes to other hiking enthusiasts.
+    * Registered site users are able to create a new hikes.
 2. As a registered site user I can edit routes than I have created so that I can improve them and correct any mistake
-3. As a registered site user I can delete a route that I have created so that I can remove any information I have added previously
+    * Registered users are able to edit their hikes.
+3. As a registered site user I can delete a route that I have created so that I can remove any information I have added previously.
+    * Resgistered users are able to delete their hikes.
 
 #### Interacting with Routes
 1. As a registered site user I can like a route so that I can express to other site users my opinion of the route
-
-
+    * Registered users are able to like/unlike hikes. 
 
 ### Code validation
 
@@ -223,11 +317,16 @@ Users can update their own profile to ensure that their information is up-to-dat
 
     ![JS validation](assets/readme_files/validation/js_validation.png)
 
-* [autopep8](https://pypi.org/project/autopep8/), [Flake8](https://flake8.pycqa.org/en/latest/) and [CI Python Linter](https://pep8ci.herokuapp.com/#) were used to validate the Python code for PEP8 requirements.
+* [autopep8](https://pypi.org/project/autopep8/), [Flake8](https://flake8.pycqa.org/en/latest/) and [CI Python Linter](https://pep8ci.herokuapp.com/#) were used throghout development to validate the Python code for PEP8 requirements.
+    * The issues highlighted by Flake8 were ignored as they related to migration files, settings, .env and .vscode files only. The developer is currently studying how to ignore those files when using Flake8 to validate code.
+    * As the developer was new to using Flake8, all the Python code was also validated using CI Python Linter to ensure PEP8 compliance. No errors were found, an example of below.
+
+    ![Flake8](assets/readme_files/validation/flake8.png)
+    ![CI Python Linter](assets/readme_files/validation/ci_python_linter.png)
 
 ### Performance and Accessibility
 
-Chrome DevTool Lighthouse was used to assess the project's performance and accessibility. The reports confirmed that the page performs well and is accessible. The recommadations relating to Best Practice noted that because of Cloudinary the site is using third party cookies.
+Chrome DevTool Lighthouse was used to assess the project's performance and accessibility. The reports confirmed that the page performs well and is accessible. The recommadations relating to Best Practice noted that, because of Cloudinary, the site is using third party cookies.
 
 | Page tested   | Report                                                                        |
 | ---           | ---                                                                           |
@@ -241,17 +340,16 @@ Chrome DevTool Lighthouse was used to assess the project's performance and acces
 | Login         | ![login](assets/readme_files/lighthouse/login_lighthouse.png)                 |
 | Logout        | ![logout](assets/readme_files/lighthouse/logout_lighthouse.png)               |
 
-
 ### Responsiveness
 
-In addition to manual checks, responsiveness was tested further using Chrome DevTools and Responsive Design Checker.
+In addition to manual checks, responsiveness was tested further using Chrome DevTools. 
 
 ### Manual testing
 
 #### Browser compatibility
 
 | Browser          | Outcome                                                  | Pass/Fail |
-| ---              | ---                                                      |           |
+| ---              | ---                                                      | ---       |
 | Google Chrome    | No appearance, responsiveness nor functionality issues.  | Pass      |
 | Mozilla Firefox  | No appearance, responsiveness nor functionality issues.  | Pass      |
 | Microsoft Edge   | No appearance, responsiveness nor functionality issues.  | Pass      |
@@ -285,11 +383,11 @@ In addition to manual checks, responsiveness was tested further using Chrome Dev
 
 * **Footer**
 
-    | Feature               | Outcome                                                                                               | Pass/Fail |
-    | ---                   | ---                                                                                                   | ---       |
-    | Facebook icon         | Opens Facebook on a separate tab.                                                                     | Pass      |
-    | Instagram icon        | Opens Instagram on a separate tab.                                                                    | Pass      |
-    | X icon                | Opens X on a separate tab.                                                                            | Pass      |
+    | Feature               | Outcome                                                                                                           | Pass/Fail |
+    | ---                   | ---                                                                                                               | ---       |
+    | Facebook icon         | Opens Facebook on a separate tab.                                                                                 | Pass      |
+    | Instagram icon        | Opens Instagram on a separate tab.                                                                                | Pass      |
+    | X icon                | Opens X on a separate tab.                                                                                        | Pass      |
 
 * **Hikes list**
 
@@ -375,84 +473,38 @@ In addition to manual checks, responsiveness was tested further using Chrome Dev
     | Register              | Works as expected.                           | Pass      |
     | Logout                | Works as expected.                           | Pass      |
 
-
-
 ### Unit testing
 
-## Technologies Used
+The developer is new to automated testing but some unit tests were created and run to improve the developers knowledge of unit testing. 
 
-### Languages used
+## Deployment
 
-* [HTML5](https://en.wikipedia.org/wiki/HTML)
-* [CSS3](https://en.wikipedia.org/wiki/CSS)
-* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
-* [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+[GitPod](https://gitpod.io/) workspace was used to develop this project, and the code was commited to [Git](https://git-scm.com/) and pushed to [GitHub](https://github.com/").
 
-### Libraries and Frameworks used
+### Deploying on Heroku
+This website was deployed to Heroku as follows:
 
-* [Django](https://www.djangoproject.com/) web framework was used to develop the site.
+1. Create a new Heroku app:
+    * Select "Create new app" in Heroku.
+    * Choose a name for the app and select the location.
 
-* [Django Template](https://jinja.palletsprojects.com) was used as a templating language for Django.
-   
-* [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) was used throughout the website to improve responsiveness and styling.
+2. Update the code for deployment:
+    * Use pip3 to install gunicorn~=20.1
+    * Freeze gunicorn to requirements.txt
+    * Using gunicorn and nature_adventures wsgi file, add a command in the Procfile to start the webserver.
+    * Append '.herokuapp.com' to ALLOWED_HOSTS list.
+    * Ensure that DEBUG has been set to 'False' in settings.py file.
 
-### Packages / Dependecies installed
-
-* [Django Allauth](https://django-allauth.readthedocs.io/en/latest/) was used for user authentication, registration, and account management.
-
-* [Django Crispy Form](https://django-crispy-forms.readthedocs.io/en/latest/) was used to control the rendering of the forms. 
- 
-* [Gunicorn](https://gunicorn.org/) was used as the Python Web Server Gateway Interface (WSGI) HTTP server. 
-
-* [Cloudinary](https://cloudinary.com/) was used as the image management solution.
-
-* [Whitenoise](https://pypi.org/project/whitenoise/) was used to serve static files.
-
-### Database Management
-
-* [Postgres](https://www.postgresql.org/) object-relational database system was used in production.
-
-### Tools and Programs
-
-* [Git](https://git-scm.com) was used for version control.
-
-* [GitPod](https://gitpod.io/) was used for writing code, committing, and then pushing to GitHub.
-
-* [GitHub](https://github.com) was used to store the code.
-
-* [Heroku](https://www.heroku.com) was used to deploy the website.
-
-* [Tiny PNG](https://tinypng.com) was used to reduce the file size of the images.
-
-* [Pixelied](https://pixelied.com/convert/jpg-converter/jpg-to-webp) was used to convert images to WEBP format.
-
-* [Coolors](https://coolors.co) was used to create a color scheme for the website.
-
-* [Balsamiq](https://balsamiq.com/) was used to create the wireframes.
-
-* [Chrome DevTools](https://developer.chrome.com/docs/devtools/) were used during development process for code review and to test responsiveness.
-
-* [W3C Markup Validator](https://validator.w3.org/) was used to validate the HTML code.
-
-* [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate the CSS code.
-
-* [JSHint](https://jshint.com/) was used to validate the site's JavaScript code.
-
-* [autopep8](https://pypi.org/project/autopep8/) was used to automatically validate the site's Python code.
-
-* [flake8](https://flake8.pycqa.org/en/latest/) was used to validate the site's Python code.
-
-* [Favicon.cc](https://www.favicon.cc/) was used to create the site favicon.
-
-* [Google Fonts](https://fonts.google.com) was used to import the fonts used.
-
-* [Font Awesome](https://fontawesome.com) was used to add icons such as social media icons and the "like" icon.
-
-
-https://learndjango.com/tutorials/django-slug-tutorial
+3. Deploy to Heroku:
+    * Go to the 'Setting' tab and reveal 'Config vars'
+    * Add 'DATABASE_URL', 'SECRET_KEY' and 'CLOUDINARY_URL' from the .env.py file.
+    * Open the new app's 'Deploy' tab and search for the correct GitHub repository.
+    * Connect the Github repo to the Heroku app.
+    * Manually or automatically deploy from the main branch.
 
 ## Credits: 
 
+https://learndjango.com/tutorials/django-slug-tutorial
 - default hiking image: Photo by Guduru Ajay bhargav: https://www.pexels.com/photo/people-walking-on-road-near-trees-at-daytime-photo-1076081/
 - default hiking image 2: Photo by Eric Sanman: https://www.pexels.com/photo/group-of-person-walking-in-mountain-1365425/
 - Seven Sisters: Photo by Andras Stefuca: https://www.pexels.com/photo/seven-sisters-sussex-england-17568779/
