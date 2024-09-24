@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
-    background: url("../images/bg-image.webp") no-repeat;
+    background: url("../images/bg_image.webp") no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -40,9 +40,11 @@ h6,
 /* Login */
 .login-container {
     background-color: #F8F9FA;
+    width: 90%;
     max-width: 800px;
-    margin: 10vh auto;
+    margin: 5vh auto 13vh;
     padding-bottom: 30px;
+    border-radius: 5px;
 }
 
 /* Login prompt */

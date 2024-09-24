@@ -78,8 +78,9 @@ def hike_info(request, slug):
         {"hike": hike,
          "likes": likes,
          "liked_hike": liked_hike,
-         "previous_url": previous_url,},
+         "previous_url": previous_url, },
     )
+
 
 @login_required
 def new_hike(request):
@@ -117,13 +118,14 @@ def new_hike(request):
                 messages.add_message(
                     request,
                     messages.ERROR,
-                    f'There has been an error, please try again.'
-                    )        
+                    'There has been an error, please try again.'
+                )
     return render(
         request,
         "hikes/create_hike.html",
         {"hike_form": hike_form, }
     )
+
 
 @login_required
 def update_hike(request, slug):
@@ -153,9 +155,9 @@ def update_hike(request, slug):
             updated_hike.slug = slugify(updated_hike.hike_name)
             updated_hike.save()
             messages.add_message(
-            request,
-            messages.SUCCESS,
-            'Your hiking route has been updated successfully!')
+                request,
+                messages.SUCCESS,
+                'Your hiking route has been updated successfully!')
             return redirect('hike_info', selected_hike.slug)
         else:
             messages.add_message(
@@ -169,6 +171,7 @@ def update_hike(request, slug):
         {"selected_hike": selected_hike,
          "update_form": update_form}
     )
+
 
 @login_required
 def delete_hike(request, slug):
@@ -190,10 +193,11 @@ def delete_hike(request, slug):
                 'Your hiking route has been deleted successfully!')
         else:
             messages.add_message(
-            request,
-            messages.ERROR,
-            'Error has occured. Please try again.')
+                request,
+                messages.ERROR,
+                'Error has occured. Please try again.')
     return HttpResponseRedirect(reverse('hikes'))
+
 
 @login_required
 def like_hike(request, slug):
