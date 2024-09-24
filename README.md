@@ -485,7 +485,9 @@ In addition to manual checks, responsiveness was tested further using Chrome Dev
 
 ### Unit testing
 
-The developer is new to automated testing but some unit tests were created and run to improve the developers knowledge of unit testing. 
+The developer is new to automated testing but some unit tests were created and run to improve the developer's knowledge of unit testing. 13 tests relating to the hike app were run successfully.
+
+![Unit tests](assets/readme_files/unit_testing.png)
 
 [Back to top](#nature-adventures)
 
