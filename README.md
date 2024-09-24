@@ -24,12 +24,12 @@ Visit the deployed site [here](https://nature-adventures-b39f8380b4ce.herokuapp.
 
 * The website creates a sense of adventure and encourages people to get outdoors.
 * The website is responsive and can easily be used on different devices.
-* The style and structure of the website is consistant to allow user to navigate the website easily
+* The style and structure of the website is consistent to allow user to navigate the website easily
 * Users are able to create a profile to encourage the users to get to know each other. 
 
 ### User Stories
 
-Excel spreadsheet was used to collect epics and user stories before development was started. Four Epics were identified to help to organise the work: 1. User Profiles, 2. Routes, 3. Managing Routes and 4. Interacting with Routes. These Epics were broekn down into user stories with clearly definied Acceptance Criteria, Story Points and MoSCoW prioritisation. 
+Excel spreadsheet was used to collect epics and user stories before development was started. Four Epics were identified to help to organise the work: 1. User Profiles, 2. Routes, 3. Managing Routes and 4. Interacting with Routes. These Epics were broken down into user stories with clearly defined Acceptance Criteria, Story Points and MoSCoW prioritisation. 
 
 ![All User Stories](assets/readme_files/user_stories/user_stories_all.png)
 
@@ -121,7 +121,7 @@ Three types of button were used: blue, green and red. The background colour of a
 
 #### Pagination
 
-The pagination controls always displays three page numbers highlighting the page that user is on. The next and previous buttons are disabled as appropriate if the user is on the first or last page.
+The pagination controls always display three page numbers highlighting the page that user is on. The next and previous buttons are disabled as appropriate if the user is on the first or last page.
 
 ![Pagination](assets/readme_files/features/pagination_controls.png)
 
@@ -185,7 +185,7 @@ Users can update their own profile to ensure that their information is up-to-dat
 
 ### Authentication pages
 
-* The registeration page allows new users to sign up and create a profile for the site.
+* The registration page allows new users to sign up and create a profile for the site.
 * The login page allows registered users to sign in using their login details.
 * The logout page allows registered users to sign out.
 
@@ -212,7 +212,7 @@ Users can update their own profile to ensure that their information is up-to-dat
    
 * [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) was used throughout the website to improve responsiveness and styling.
 
-### Packages and Dependecies installed
+### Packages and Dependencies installed
 
 * [Django Allauth](https://django-allauth.readthedocs.io/en/latest/) was used for user authentication, registration, and account management.
 
@@ -290,7 +290,7 @@ Users can update their own profile to ensure that their information is up-to-dat
 2. As a registered site user I can edit routes than I have created so that I can improve them and correct any mistake
     * Registered users are able to edit their hikes.
 3. As a registered site user I can delete a route that I have created so that I can remove any information I have added previously.
-    * Resgistered users are able to delete their hikes.
+    * Registered users are able to delete their hikes.
 
 #### Interacting with Routes
 1. As a registered site user I can like a route so that I can express to other site users my opinion of the route
@@ -336,7 +336,7 @@ Users can update their own profile to ensure that their information is up-to-dat
 
 ### Performance and Accessibility
 
-Chrome DevTool Lighthouse was used to assess the project's performance and accessibility. The reports confirmed that the page performs well and is accessible. The recommadations relating to Best Practice noted that, because of Cloudinary, the site is using third party cookies.
+Chrome DevTool Lighthouse was used to assess the project's performance and accessibility. The reports confirmed that the page performs well and is accessible. The recommendations relating to Best Practice noted that, because of Cloudinary, the site is using third party cookies.
 
 | Page tested   | Report                                                                        |
 | ---           | ---                                                                           |
@@ -388,7 +388,7 @@ In addition to manual checks, responsiveness was tested further using Chrome Dev
     | My Profile link       | Only displayed when logged in. The correct user is shown. Redirects to the user's profiles.                       | Pass      |
     | Logout                | Only displayed when logged in. Redirects to the logout page.                                                      | Pass      |
     | Login                 | Only displayed when not logged in. Redirects to the login page.                                                   | Pass      |
-    | Register              | Only displayed when not logged in. Redirects to the registeration page.                                           | Pass      |
+    | Register              | Only displayed when not logged in. Redirects to the registration page.                                            | Pass      |
     | Hamburger menu        | Navigation menu works as expected on smaller devices.                                                             | Pass      |
 
 * **Footer**
@@ -485,7 +485,7 @@ In addition to manual checks, responsiveness was tested further using Chrome Dev
 
 ### Unit testing
 
-The developer is new to automated testing but some unit tests were created and run to improve the developer's knowledge of unit testing. 13 tests relating to the hike app were run successfully.
+The developer is new to automated testing, but some unit tests were created and run to improve the developer's knowledge of unit testing. 13 tests relating to the hike app were run successfully.
 
 ![Unit tests](assets/readme_files/unit_testing.png)
 
@@ -493,7 +493,7 @@ The developer is new to automated testing but some unit tests were created and r
 
 ## Deployment
 
-[GitPod](https://gitpod.io/) workspace was used to develop this project, and the code was commited to [Git](https://git-scm.com/) and pushed to [GitHub](https://github.com/").
+[GitPod](https://gitpod.io/) workspace was used to develop this project, and the code was committed to [Git](https://git-scm.com/) and pushed to [GitHub](https://github.com/).
 
 ### Deploying on Heroku
 This website was deployed to Heroku as follows:
@@ -541,7 +541,7 @@ This website was deployed to Heroku as follows:
 ### Content
 
 * Most of the content was written by the developer.
-* Box Hill Hike information information was taken from [National Trust](https://www.nationaltrust.org.uk/visit/surrey/box-hill/the-box-hill-hike)
+* Box Hill Hike information was taken from [National Trust](https://www.nationaltrust.org.uk/visit/surrey/box-hill/the-box-hill-hike)
 * Inspiration for the Snowdonia hikes was taken from [Eryri National Park](https://snowdonia.gov.wales/) and for Seven Sisters hike from [AllTrails](https://www.alltrails.com/en-gb)
 
 ### Media 
